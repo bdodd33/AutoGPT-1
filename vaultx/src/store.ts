@@ -9,6 +9,22 @@ const HASH_KEY = 'vaultx_hash';
 const DECOY_HASH_KEY = 'vaultx_decoy_hash';
 const DECOY_KEY = 'vaultx_decoy';
 
+// Safe localStorage wrapper — some iOS contexts (file://, Private Mode) throw
+const mem = new Map<string, string>();
+const store = {
+  get: (k: string): string | null => {
+    try { return localStorage.getItem(k); } catch { return mem.get(k) ?? null; }
+  },
+  set: (k: string, v: string): void => {
+    try { localStorage.setItem(k, v); } catch { /* ignore */ }
+    mem.set(k, v);
+  },
+  remove: (k: string): void => {
+    try { localStorage.removeItem(k); } catch { /* ignore */ }
+    mem.delete(k);
+  },
+};
+
 const DEFAULT_SETTINGS: VaultSettings = {
   autoLockMinutes: 15,
   theme: 'dark',
@@ -85,8 +101,8 @@ export function useVault(): UseVaultReturn {
   const lockTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const hasVault = !!localStorage.getItem(VAULT_KEY);
-    const hasHash = !!localStorage.getItem(HASH_KEY);
+    const hasVault = !!store.get(VAULT_KEY);
+    const hasHash = !!store.get(HASH_KEY);
     setIsFirst(!hasVault && !hasHash);
     setMode(!hasVault && !hasHash ? 'setup' : 'locked');
   }, []);
@@ -137,7 +153,7 @@ export function useVault(): UseVaultReturn {
   async function persist(data: VaultData) {
     const json = JSON.stringify(data);
     const encrypted = await encryptVault(json, masterPasswordRef.current);
-    localStorage.setItem(VAULT_KEY, encrypted);
+    store.set(VAULT_KEY, encrypted);
   }
 
   const setupVault = useCallback(async (password: string, hint: string, decoyPassword?: string) => {
@@ -152,8 +168,8 @@ export function useVault(): UseVaultReturn {
         hashPassword(password),
         encryptVault(JSON.stringify(newVault), password),
       ]);
-      localStorage.setItem(HASH_KEY, hash);
-      localStorage.setItem(VAULT_KEY, encrypted);
+      store.set(HASH_KEY, hash);
+      store.set(VAULT_KEY, encrypted);
 
       if (decoyPassword) {
         const decoyVault = emptyVault();
@@ -161,8 +177,8 @@ export function useVault(): UseVaultReturn {
           hashPassword(decoyPassword),
           encryptVault(JSON.stringify(decoyVault), decoyPassword),
         ]);
-        localStorage.setItem(DECOY_HASH_KEY, decoyHash);
-        localStorage.setItem(DECOY_KEY, decoyEncrypted);
+        store.set(DECOY_HASH_KEY, decoyHash);
+        store.set(DECOY_KEY, decoyEncrypted);
       }
 
       setVault(newVault);
@@ -178,14 +194,14 @@ export function useVault(): UseVaultReturn {
 
     setLoading(true);
     try {
-      const hash = localStorage.getItem(HASH_KEY);
-      const decoyHash = localStorage.getItem(DECOY_HASH_KEY);
+      const hash = store.get(HASH_KEY);
+      const decoyHash = store.get(DECOY_HASH_KEY);
 
       // Check decoy first
       if (decoyHash) {
         const isDecoy = await verifyPassword(password, decoyHash);
         if (isDecoy) {
-          const decoyData = localStorage.getItem(DECOY_KEY);
+          const decoyData = store.get(DECOY_KEY);
           if (decoyData) {
             const decrypted = await decryptVault(decoyData, password);
             masterPasswordRef.current = password;
@@ -211,7 +227,7 @@ export function useVault(): UseVaultReturn {
         return false;
       }
 
-      const raw = localStorage.getItem(VAULT_KEY);
+      const raw = store.get(VAULT_KEY);
       if (!raw) return false;
       const decrypted = await decryptVault(raw, password);
       masterPasswordRef.current = password;
@@ -293,14 +309,14 @@ export function useVault(): UseVaultReturn {
   }, [vault]);
 
   const exportVault = useCallback((): string | null => {
-    return localStorage.getItem(VAULT_KEY);
+    return store.get(VAULT_KEY);
   }, []);
 
   const importVault = useCallback(async (data: string, password: string): Promise<void> => {
     const decrypted = await decryptVault(data, password);
     const imported = JSON.parse(decrypted) as VaultData;
     const re = await encryptVault(JSON.stringify(imported), masterPasswordRef.current);
-    localStorage.setItem(VAULT_KEY, re);
+    store.set(VAULT_KEY, re);
     setVault(imported);
   }, []);
 
