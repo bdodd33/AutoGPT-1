@@ -1,6 +1,6 @@
 [
   {
-    "keyword": "stoicism",
+    "keyword": "keyword number 0 test",
     "gap_score": 47.5,
     "is_priority": false,
     "demand_score": 0.0,
@@ -16,11 +16,61 @@
     "avg_rating": null,
     "top_book_titles": [],
     "book_ideas": [
-      "The Complete Guide to Stoicism",
-      "Stoicism: A Beginner's Step-by-Step Handbook",
-      "The Hidden Truth About Stoicism Nobody Tells You",
-      "30 Days to Mastering Stoicism",
-      "Stoicism for Busy People: Simple Strategies That Work"
+      "The Complete Guide to Keyword Number 0 Test",
+      "Keyword Number 0 Test: A Beginner's Step-by-Step Handbook",
+      "The Hidden Truth About Keyword Number 0 Test Nobody Tells You",
+      "30 Days to Mastering Keyword Number 0 Test",
+      "Keyword Number 0 Test for Busy People: Simple Strategies That Work"
+    ],
+    "insufficient_data": true
+  },
+  {
+    "keyword": "keyword number 1 test",
+    "gap_score": 47.5,
+    "is_priority": false,
+    "demand_score": 0.0,
+    "supply_score": 100.0,
+    "competition_score": 50.0,
+    "trend_score": 0.0,
+    "reddit_demand_score": 0.0,
+    "amazon_result_count": 0,
+    "google_books_count": 0,
+    "open_library_count": 0,
+    "avg_bsr": null,
+    "avg_reviews": null,
+    "avg_rating": null,
+    "top_book_titles": [],
+    "book_ideas": [
+      "The Complete Guide to Keyword Number 1 Test",
+      "Keyword Number 1 Test: A Beginner's Step-by-Step Handbook",
+      "The Hidden Truth About Keyword Number 1 Test Nobody Tells You",
+      "30 Days to Mastering Keyword Number 1 Test",
+      "Keyword Number 1 Test for Busy People: Simple Strategies That Work"
+    ],
+    "insufficient_data": true
+  },
+  {
+    "keyword": "keyword number 2 test",
+    "gap_score": 47.5,
+    "is_priority": false,
+    "demand_score": 0.0,
+    "supply_score": 100.0,
+    "competition_score": 50.0,
+    "trend_score": 0.0,
+    "reddit_demand_score": 0.0,
+    "amazon_result_count": 0,
+    "google_books_count": 0,
+    "open_library_count": 0,
+    "avg_bsr": null,
+    "avg_reviews": null,
+    "avg_rating": null,
+    "top_book_titles": [],
+    "book_ideas": [
+      "The Complete Guide to Keyword Number 2 Test",
+      "Keyword Number 2 Test: A Beginner's Step-by-Step Handbook",
+      "The Hidden Truth About Keyword Number 2 Test Nobody Tells You",
+      "30 Days to Mastering Keyword Number 2 Test",
+      "Keyword Number 2 Test for Busy People: Simple Strategies That Work"
     ],
     "insufficient_data": true
   }
