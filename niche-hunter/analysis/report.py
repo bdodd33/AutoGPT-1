@@ -93,10 +93,10 @@ def export_json(results: list[dict], path: str) -> None:
         json.dump(sorted_results, f, indent=2, default=str)
 
 
-def write_summary_md(results: list[dict], path: str) -> None:
+def write_summary_md(results: list[dict], path: str, clusters: list[dict] | None = None) -> None:
     """
-    Write a Markdown report with a Priority Niches section followed
-    by a full results table. Creates parent dirs.
+    Write a Markdown report with Priority Niches, Series Opportunities,
+    and a full results table. Creates parent dirs.
     """
     os.makedirs(os.path.dirname(path) if os.path.dirname(path) else ".", exist_ok=True)
     sorted_results = sorted(results, key=lambda r: r.get("gap_score", 0), reverse=True)
@@ -141,6 +141,30 @@ def write_summary_md(results: list[dict], path: str) -> None:
                 lines.append("")
             lines.append("---")
             lines.append("")
+
+    # ── Series opportunities ──────────────────────────────────────────────────
+    if clusters:
+        series = [c for c in clusters if c.get("is_series_opportunity")]
+        if series:
+            lines.append("## 📚 SERIES OPPORTUNITIES")
+            lines.append("")
+            lines.append("These niches are related enough to build a book series.")
+            lines.append("Dominating one helps you rank in all of them.")
+            lines.append("")
+            for c in series:
+                name = c["cluster_name"].title()
+                avg  = c["avg_gap_score"]
+                lines.append(f"### {name} Cluster (avg gap: {avg})")
+                for kw in c["keywords"]:
+                    gap_val = next((r["gap_score"] for r in results if r["keyword"] == kw), 0)
+                    pri     = " ⭐" if next((r.get("is_priority") for r in results if r["keyword"] == kw), False) else ""
+                    lines.append(f"- {kw} (gap: {gap_val}){pri}")
+                lines.append("")
+                if c.get("series_note"):
+                    lines.append(f"**Strategy:** {c['series_note']}")
+                    lines.append("")
+                lines.append("---")
+                lines.append("")
 
     # ── Full results table ────────────────────────────────────────────────────
     lines.append("## ALL NICHES ANALYSED")

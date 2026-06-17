@@ -15,6 +15,14 @@ from config import CACHE_DIR, CACHE_TTL_HOURS
 
 logger = logging.getLogger(__name__)
 
+_BYPASS_CACHE = False
+
+
+def disable_cache() -> None:
+    """Call once before the pipeline to bypass all cache reads (--no-cache flag)."""
+    global _BYPASS_CACHE
+    _BYPASS_CACHE = True
+
 
 def cache_key(prefix: str, keyword: str) -> str:
     """Generate a safe filename from prefix + keyword."""
@@ -29,8 +37,10 @@ def _cache_path(key: str) -> str:
 def get_cached(key: str) -> dict | None:
     """
     Return cached data if it exists and is within TTL.
-    Returns None if missing or expired.
+    Returns None if missing, expired, or cache is disabled.
     """
+    if _BYPASS_CACHE:
+        return None
     path = _cache_path(key)
     if not os.path.exists(path):
         return None
