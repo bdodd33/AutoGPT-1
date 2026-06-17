@@ -5,10 +5,13 @@ Parses arguments, prints a startup banner, and orchestrates the pipeline.
 """
 
 import argparse
+import os
 import sys
+from datetime import date
 
 from rich.console import Console
 from rich.panel import Panel
+from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn
 from rich.text import Text
 
 import config
@@ -17,7 +20,7 @@ from scrapers.google_trends import get_trend_score, get_rising_queries
 from scrapers.google_books import count_books
 from scrapers.open_library import count_works
 from scrapers.reddit import search_reddit, score_demand_from_reddit
-from analysis.gap_score import calculate_gap_score, is_priority, normalize
+from analysis.gap_score import calculate_gap_score
 from analysis.report import build_rich_table, export_csv, export_json, write_summary_md
 
 console = Console()
@@ -29,9 +32,11 @@ def print_banner() -> None:
     subtitle = Text("Amazon KDP Gap Finder", style="dim")
     content = Text.assemble(title, "\n", subtitle)
     console.print(Panel(content, expand=False, border_style="green"))
-    console.print(f"[dim]Config loaded — cache TTL: {config.CACHE_TTL_HOURS}h | "
-                  f"weights D:{config.WEIGHT_DEMAND} S:{config.WEIGHT_SUPPLY} "
-                  f"C:{config.WEIGHT_COMPETITION}[/dim]\n")
+    console.print(
+        f"[dim]Config loaded — cache TTL: {config.CACHE_TTL_HOURS}h | "
+        f"weights D:{config.WEIGHT_DEMAND} S:{config.WEIGHT_SUPPLY} "
+        f"C:{config.WEIGHT_COMPETITION}[/dim]\n"
+    )
 
 
 def load_keywords_from_file(path: str) -> list[str]:
@@ -45,39 +50,68 @@ def load_keywords_from_file(path: str) -> list[str]:
     return keywords
 
 
-def run_pipeline(keywords: list[str], output_dir: str) -> None:
-    """Run the full analysis pipeline for a list of keywords (stub)."""
-    console.print(f"[bold]Analysing {len(keywords)} keyword(s):[/bold] {', '.join(keywords)}\n")
-
+def run_pipeline(keywords: list[str]) -> list[dict]:
+    """
+    For each keyword: fetch all scraper data, compute gap score, return
+    results sorted by gap_score descending.
+    Shows a live progress bar with per-scraper status lines.
+    """
+    console.print(f"[bold]Analysing {len(keywords)} keyword(s)…[/bold]\n")
     results = []
-    for kw in keywords:
-        console.print(f"  [cyan]→[/cyan] {kw}")
 
-        # Scraper stubs — will return real data in Part 2
-        amazon_data   = search_amazon(kw) or {}
-        trend_score   = get_trend_score(kw) or 0.0
-        books_count   = count_books(kw) or 0
-        works_count   = count_works(kw) or 0
+    for idx, kw in enumerate(keywords, 1):
+        console.print(f"[bold cyan][{idx}/{len(keywords)}][/bold cyan] {kw}")
+
+        # ── Google Trends ──────────────────────────────────────────────────
+        trend_score = get_trend_score(kw) or 0.0
+        console.print(f"      [green]✓[/green] Google Trends (score: {trend_score:.0f})")
+
+        # ── Google Books ───────────────────────────────────────────────────
+        gbooks_count = count_books(kw) or 0
+        console.print(f"      [green]✓[/green] Google Books ({gbooks_count:,} books)")
+
+        # ── Open Library ───────────────────────────────────────────────────
+        oplib_count = count_works(kw) or 0
+        console.print(f"      [green]✓[/green] Open Library ({oplib_count:,} works)")
+
+        # ── Reddit ─────────────────────────────────────────────────────────
         reddit_posts  = search_reddit(kw) or []
-        reddit_demand = score_demand_from_reddit(reddit_posts) or 0.0
+        reddit_demand = score_demand_from_reddit(reddit_posts)
+        console.print(
+            f"      [green]✓[/green] Reddit ({len(reddit_posts)} posts, "
+            f"demand: {reddit_demand:.0f})"
+        )
 
-        # Scoring stubs — will be wired in Part 3
-        demand_score      = normalize(trend_score + reddit_demand, 0, 200) or 0.0
-        supply_score      = normalize(books_count + works_count, 0, 10000) or 0.0
-        competition_score = 0.0
-        gap_score         = calculate_gap_score(demand_score, supply_score, competition_score) or 0.0
-        priority          = is_priority(gap_score, {}) or False
+        # ── Amazon ─────────────────────────────────────────────────────────
+        amazon_data  = search_amazon(kw) or {}
+        top_books    = amazon_data.get("top_books") or []
+        amz_count    = amazon_data.get("total_results", 0)
+        amz_blocked  = amazon_data.get("blocked", False)
+        top_bsr_vals = [b["bsr"] for b in top_books if b.get("bsr")]
+        top_bsr_str  = f"{min(top_bsr_vals):,}" if top_bsr_vals else "n/a"
+        console.print(
+            f"      [green]✓[/green] Amazon ({amz_count:,} results, "
+            f"top BSR: {top_bsr_str})"
+        )
 
-        results.append({
-            "keyword":      kw,
-            "gap_score":    gap_score,
-            "is_priority":  priority,
-            "demand":       demand_score,
-            "supply":       supply_score,
-            "competition":  competition_score,
-        })
+        # ── Scoring ────────────────────────────────────────────────────────
+        metrics = {
+            "keyword":             kw,
+            "trend_score":         trend_score,
+            "reddit_demand_score": reddit_demand,
+            "amazon_result_count": amz_count,
+            "top_books":           top_books,
+            "amazon_blocked":      amz_blocked,
+            "google_books_count":  gbooks_count,
+            "open_library_count":  oplib_count,
+        }
+        scored = calculate_gap_score(metrics)
+        results.append(scored)
 
-    build_rich_table(results)
+        pri_tag = " [bold green]⭐ PRIORITY[/bold green]" if scored["is_priority"] else ""
+        console.print(f"      [bold]→ Gap Score: {scored['gap_score']}{pri_tag}[/bold]\n")
+
+    return sorted(results, key=lambda r: r["gap_score"], reverse=True)
 
 
 def main() -> None:
@@ -113,7 +147,6 @@ def main() -> None:
     )
 
     args = parser.parse_args()
-
     print_banner()
 
     keywords: list[str] = []
@@ -133,8 +166,28 @@ def main() -> None:
         sys.exit(1)
 
     keywords = list(dict.fromkeys(keywords))  # deduplicate, preserve order
-    run_pipeline(keywords, args.output)
-    console.print("\n[bold green]Done.[/bold green]")
+
+    results = run_pipeline(keywords)
+
+    # ── Terminal table ─────────────────────────────────────────────────────
+    build_rich_table(results)
+
+    # ── Export files ───────────────────────────────────────────────────────
+    today = date.today().isoformat()
+    os.makedirs(args.output, exist_ok=True)
+
+    csv_path  = os.path.join(args.output, f"{today}_niche_report.csv")
+    json_path = os.path.join(args.output, f"{today}_niche_report.json")
+    md_path   = os.path.join(args.output, f"{today}_summary.md")
+
+    export_csv(results, csv_path)
+    export_json(results, json_path)
+    write_summary_md(results, md_path)
+
+    console.print(f"\n[bold green]Done.[/bold green] Reports saved to [cyan]{args.output}/[/cyan]")
+    console.print(f"  [dim]{csv_path}[/dim]")
+    console.print(f"  [dim]{json_path}[/dim]")
+    console.print(f"  [dim]{md_path}[/dim]")
 
 
 if __name__ == "__main__":
