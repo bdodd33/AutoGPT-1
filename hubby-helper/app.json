@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "Hubby Helper",
+    "slug": "hubby-helper",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "userInterfaceStyle": "dark",
+    "scheme": "hubbyhelper",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0F0A0C"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.hubbyhelper.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Used to upload a profile photo.",
+        "NSPhotoLibraryUsageDescription": "Used to select a profile photo.",
+        "NSUserNotificationsUsageDescription": "Sends reminders for important dates and message prompts."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#0F0A0C"
+      },
+      "package": "com.hubbyhelper.app",
+      "versionCode": 1,
+      "permissions": ["RECEIVE_BOOT_COMPLETED", "VIBRATE", "INTERNET"]
+    },
+    "plugins": [
+      "expo-router",
+      ["expo-notifications", { "icon": "./assets/images/icon.png", "color": "#8B1A2E", "sounds": [] }]
+    ],
+    "experiments": { "typedRoutes": true }
+  }
+}

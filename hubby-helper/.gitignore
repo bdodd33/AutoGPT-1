@@ -1,0 +1,11 @@
+node_modules/
+.expo/
+dist/
+build/
+.env
+*.p8
+*.p12
+*.mobileprovision
+google-service-account.json
+.DS_Store
+*.log
