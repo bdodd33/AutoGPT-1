@@ -1,0 +1,21 @@
+export const Colors = {
+  primary: '#8B1A2E',
+  primaryLight: '#C0392B',
+  primaryDark: '#5C0F1E',
+  gold: '#C9A84C',
+  goldLight: '#E8C97A',
+  background: '#0F0A0C',
+  surface: '#1A1014',
+  surfaceElevated: '#241820',
+  textPrimary: '#F5F0F2',
+  textSecondary: '#A89BA0',
+  textMuted: '#6B5F63',
+  success: '#2ECC71',
+  warning: '#F39C12',
+  error: '#E74C3C',
+  border: '#2D2028',
+  borderLight: '#3D3038',
+  overlay: 'rgba(15, 10, 12, 0.85)',
+  overlayLight: 'rgba(15, 10, 12, 0.60)',
+} as const;
+export type ColorKey = keyof typeof Colors;
