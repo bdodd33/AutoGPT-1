@@ -21,6 +21,7 @@ export default function TabsLayout() {
       <Tabs.Screen name="dates" options={{ title: 'Dates', tabBarIcon: ({ focused: f }) => <Icon e="📅" f={f} /> }} />
       <Tabs.Screen name="messages" options={{ title: 'Message', tabBarIcon: ({ focused: f }) => <Icon e="💌" f={f} /> }} />
       <Tabs.Screen name="gifts" options={{ title: 'Gift Ideas', tabBarIcon: ({ focused: f }) => <Icon e="🎁" f={f} /> }} />
+      <Tabs.Screen name="profile" options={{ title: 'Profile', tabBarIcon: ({ focused: f }) => <Icon e="👤" f={f} /> }} />
     </Tabs>
   );
 }
