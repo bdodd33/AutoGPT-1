@@ -22,3 +22,18 @@ export interface ImportantDate {
   /** Days-before offsets at which to remind, e.g. [30, 7, 3, 1] */
   reminder_days_before?: number[];
 }
+
+export type MessageType =
+  | 'romantic'
+  | 'encouraging'
+  | 'appreciation'
+  | 'fun'
+  | 'spiritual';
+
+export interface MessagePrompt {
+  id: string;
+  type: MessageType;
+  prompt: string;
+  hint: string;
+  starter: string;
+}
