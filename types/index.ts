@@ -37,3 +37,5 @@ export interface MessagePrompt {
   hint: string;
   starter: string;
 }
+
+export interface GiftLogEntry { id: string; user_id: string; important_date_id: string | null; occasion: string; gift_description: string; idea_note: string | null; given_at: string | null; created_at: string; }
