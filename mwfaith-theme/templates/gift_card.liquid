@@ -1,0 +1,12 @@
+{% layout 'password' %}
+<div>
+  <div class="site-header__logo" style="font-size:2rem;margin-bottom:1rem;">MW<span>Faith</span></div>
+  <span class="eyebrow">Gift Card</span>
+  <h1>{{ gift_card.balance | money }}</h1>
+  <p class="text-muted">Present this code at checkout to redeem your MWFaith gift card.</p>
+  {%- if gift_card.qr_identifier -%}
+    {{ gift_card | img_tag }}
+  {%- endif -%}
+  <div class="field" style="font-family:monospace;letter-spacing:.2em;margin:1.5rem auto;max-width:320px;">{{ gift_card.code | format_code }}</div>
+  <a href="{{ shop.url }}" class="btn">Shop MWFaith</a>
+</div>

@@ -1,0 +1,24 @@
+<section class="section">
+  <div class="page-width">
+    <div class="section-heading center reveal">
+      <span class="eyebrow">The Journal</span>
+      <h1>{{ blog.title }}</h1>
+      <p class="text-muted">Devotionals, styling guides, and stories from the MWFaith community.</p>
+    </div>
+
+    {%- paginate blog.articles by 12 -%}
+      <div class="grid article-grid">
+        {%- for article in blog.articles -%}
+          {% render 'article-card', article: article %}
+        {%- endfor -%}
+      </div>
+      {%- if paginate.pages > 1 -%}
+        <nav class="center mt-2" aria-label="Pagination">{{ paginate | default_pagination }}</nav>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Blog", "settings": [ { "type": "paragraph", "content": "Displays articles from the current blog." } ] }
+{% endschema %}

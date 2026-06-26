@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "details": { "type": "accordion", "settings": { "heading": "Details & Fabric", "content": "<p>Premium heavyweight cotton, garment-dyed for a soft-washed feel. Printed on demand with eco-friendly inks. Unisex relaxed fit.</p>" } },
+        "shipping": { "type": "accordion", "settings": { "heading": "Shipping & Returns", "content": "<p>Made to order and shipped within 3–5 business days. 30-day satisfaction guarantee.</p>" } },
+        "care": { "type": "accordion", "settings": { "heading": "Care", "content": "<p>Machine wash cold, inside out. Tumble dry low. Do not iron directly on print.</p>" } }
+      },
+      "block_order": ["details", "shipping", "care"]
+    },
+    "related": {
+      "type": "featured-collection",
+      "settings": { "eyebrow": "You May Also Like", "heading": "Complete the Look", "products_to_show": 4, "center": true }
+    }
+  },
+  "order": ["main", "related"]
+}

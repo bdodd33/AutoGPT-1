@@ -1,0 +1,46 @@
+<article class="section">
+  <div class="page-width">
+    <div class="center reveal" style="max-width:720px;margin-inline:auto;">
+      <span class="eyebrow">{{ article.published_at | date: '%B %d, %Y' }}{% if article.tags.size > 0 %} · {{ article.tags.first }}{% endif %}</span>
+      <h1>{{ article.title }}</h1>
+      <p class="text-muted">By {{ article.author }}</p>
+    </div>
+  </div>
+
+  {%- if article.image -%}
+    <div class="page-width" style="margin-block:2.5rem;">
+      <img src="{{ article.image | image_url: width: 1400 }}" alt="{{ article.image.alt | default: article.title | escape }}" width="1400" height="788" style="border-radius:var(--radius);width:100%;" fetchpriority="high">
+    </div>
+  {%- endif -%}
+
+  <div class="page-width">
+    <div class="article-body rte reveal">{{ article.content }}</div>
+
+    {%- if blog.comments_enabled? -%}
+      <div class="article-body mt-2" style="border-top:1px solid var(--color-line);padding-top:2rem;">
+        <h3>Join the Conversation</h3>
+        {%- if article.comments_count > 0 -%}
+          {%- for comment in article.comments -%}
+            <div class="testimonial" style="margin-bottom:1rem;">
+              <p>{{ comment.content }}</p>
+              <p class="testimonial__author">— {{ comment.author }}</p>
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+        {%- form 'new_comment', article -%}
+          {%- if form.posted_successfully? -%}<p style="color:var(--color-gold);">Thank you — your comment is posted (or awaiting moderation).</p>{%- endif -%}
+          <div class="product__options">
+            <input class="field" type="text" name="comment[author]" placeholder="Name" required>
+            <input class="field" type="email" name="comment[email]" placeholder="Email" required>
+            <textarea class="field" name="comment[body]" rows="4" placeholder="Your comment" required></textarea>
+          </div>
+          <button type="submit" class="btn mt-1">Post Comment</button>
+        {%- endform -%}
+      </div>
+    {%- endif -%}
+  </div>
+</article>
+
+{% schema %}
+{ "name": "Article", "settings": [ { "type": "paragraph", "content": "Displays the current blog article." } ] }
+{% endschema %}

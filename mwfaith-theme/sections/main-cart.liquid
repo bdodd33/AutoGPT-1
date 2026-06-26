@@ -1,0 +1,49 @@
+<section class="section">
+  <div class="page-width">
+    <div class="section-heading reveal"><h1>Your Cart</h1></div>
+
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post">
+        <div class="cart-table">
+          {%- for item in cart.items -%}
+            <div class="cart-row">
+              <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.product.title | escape }}" width="80" height="100">
+              <div class="cart-row__info">
+                <a href="{{ item.url }}"><strong>{{ item.product.title }}</strong></a>
+                {%- unless item.variant.title contains 'Default' -%}<p class="text-muted" style="font-size:.88rem;">{{ item.variant.title }}</p>{%- endunless -%}
+                <p>{{ item.final_price | money }}</p>
+              </div>
+              <div class="cart-row__qty">
+                <input class="field" type="number" name="updates[]" value="{{ item.quantity }}" min="0" style="width:72px;">
+              </div>
+              <div class="cart-row__total">{{ item.final_line_price | money }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="cart-foot">
+          <button type="submit" name="update" class="btn btn--ghost">Update</button>
+          <div class="cart-foot__totals">
+            <p class="product__price">Subtotal: {{ cart.total_price | money }}</p>
+            <p class="text-muted" style="font-size:.82rem;">Taxes and shipping calculated at checkout. You'll earn {{ cart.total_price | divided_by: 100 }} Faith Rewards points.</p>
+            <button type="submit" name="checkout" class="btn btn--block mt-1">Checkout</button>
+          </div>
+        </div>
+      </form>
+    {%- else -%}
+      <p class="center text-muted" style="padding:3rem 0;">Your cart is empty.<br><a href="{{ routes.all_products_collection_url }}" class="btn mt-1">Shop the Collection</a></p>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .cart-row { display: grid; grid-template-columns: 80px 1fr auto auto; gap: 1.5rem; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid var(--color-line); }
+  .cart-row img { border-radius: var(--radius); }
+  .cart-foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; }
+  .cart-foot__totals { margin-left: auto; text-align: right; min-width: 280px; }
+  @media (max-width: 749px) { .cart-row { grid-template-columns: 64px 1fr; } .cart-row__qty, .cart-row__total { grid-column: 2; text-align: left; } }
+</style>
+
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

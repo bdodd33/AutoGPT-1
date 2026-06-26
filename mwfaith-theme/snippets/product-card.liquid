@@ -1,0 +1,43 @@
+{%- comment -%}
+  Reusable product card.
+  Params: product (object), badge (optional string)
+{%- endcomment -%}
+{%- liquid
+  assign on_sale = false
+  if product.compare_at_price > product.price
+    assign on_sale = true
+  endif
+-%}
+<a href="{{ product.url }}" class="product-card reveal" aria-label="{{ product.title | escape }}">
+  <div class="product-card__media">
+    {%- if badge != blank -%}
+      <span class="product-card__badge">{{ badge }}</span>
+    {%- elsif on_sale -%}
+      <span class="product-card__badge">Sale</span>
+    {%- elsif product.tags contains 'new' -%}
+      <span class="product-card__badge">New</span>
+    {%- endif -%}
+    {%- if product.featured_media -%}
+      <img src="{{ product.featured_media | image_url: width: 600 }}"
+           srcset="{{ product.featured_media | image_url: width: 400 }} 400w, {{ product.featured_media | image_url: width: 800 }} 800w"
+           sizes="(max-width: 749px) 50vw, 25vw"
+           alt="{{ product.featured_media.alt | default: product.title | escape }}"
+           width="600" height="750" loading="lazy">
+      {%- if product.media[1] -%}
+        <img class="alt-img" src="{{ product.media[1] | image_url: width: 600 }}" alt="" width="600" height="750" loading="lazy">
+      {%- endif -%}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'product-card__media' }}
+    {%- endif -%}
+  </div>
+  <div class="product-card__info">
+    <p class="product-card__title">{{ product.title }}</p>
+    <p class="product-card__price">
+      {%- if on_sale -%}
+        <span class="sale">{{ product.price | money }}</span><span class="was">{{ product.compare_at_price | money }}</span>
+      {%- else -%}
+        {{ product.price | money }}
+      {%- endif -%}
+    </p>
+  </div>
+</a>

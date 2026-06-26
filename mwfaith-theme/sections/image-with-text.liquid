@@ -1,0 +1,35 @@
+<section class="section">
+  <div class="page-width split">
+    <div class="split__media reveal {% if section.settings.reverse %}order-2{% endif %}" {% if section.settings.reverse %}style="order:2"{% endif %}>
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.image.alt | escape }}" width="1200" height="1400" loading="lazy">
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder' }}
+      {%- endif -%}
+    </div>
+    <div class="split__text reveal">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      <div class="rte text-muted">{{ section.settings.text }}</div>
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link }}" class="btn mt-1">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image with text",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "checkbox", "id": "reverse", "label": "Reverse layout", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Faith, Made to Last" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>MWFaith was born from a simple conviction: what we wear should mean something. Each garment is printed on demand on premium, ethically sourced blanks — so nothing is wasted, and every piece is made just for you. From the weight of the fabric to the depth of the print, we obsess over the details so your faith always shows up in its best form.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Read Our Story" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [ { "name": "Image with text" } ]
+}
+{% endschema %}

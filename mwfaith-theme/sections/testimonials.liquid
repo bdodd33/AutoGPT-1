@@ -1,0 +1,45 @@
+<section class="section">
+  <div class="page-width">
+    <div class="section-heading center reveal">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <div class="grid testimonials">
+      {%- for block in section.blocks -%}
+        <figure class="testimonial reveal" {{ block.shopify_attributes }}>
+          <div class="testimonial__stars">★★★★★</div>
+          <blockquote class="testimonial__quote">“{{ block.settings.quote }}”</blockquote>
+          <figcaption class="testimonial__author">— {{ block.settings.author }}</figcaption>
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "From the Community" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Loved by Believers Everywhere" }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "The quality is unreal — feels like a $90 designer tee. I get stopped and asked about it constantly." },
+        { "type": "text", "id": "author", "label": "Author", "default": "Sarah M., Texas" }
+      ]
+    }
+  ],
+  "presets": [ {
+    "name": "Testimonials",
+    "blocks": [
+      { "type": "quote", "settings": { "quote": "The quality is unreal — feels like a $90 designer tee. I get stopped and asked about it constantly.", "author": "Sarah M., Texas" } },
+      { "type": "quote", "settings": { "quote": "Finally, faith apparel that looks high-end. The minimalist cross design is my everyday go-to.", "author": "Marcus D., California" } },
+      { "type": "quote", "settings": { "quote": "Earned enough Faith Rewards points for a free hoodie. The community drops are addictive!", "author": "Jenna R., Florida" } }
+    ]
+  } ]
+}
+{% endschema %}

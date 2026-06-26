@@ -1,0 +1,28 @@
+<section class="section">
+  <div class="page-width" style="max-width:440px;">
+    <div class="section-heading center reveal">
+      <span class="eyebrow">Faith Rewards</span>
+      <h1>Sign In</h1>
+    </div>
+
+    {%- form 'customer_login', class: 'product__options' -%}
+      {{ form.errors | default_errors }}
+      <div><label for="login-email">Email</label><input class="field" id="login-email" type="email" name="customer[email]" required></div>
+      <div><label for="login-pass">Password</label><input class="field" id="login-pass" type="password" name="customer[password]" required></div>
+      <button type="submit" class="btn btn--block">Sign In</button>
+      <p class="center"><a href="#recover" class="text-muted" style="font-size:.85rem;">Forgot your password?</a></p>
+    {%- endform -%}
+
+    <p class="center text-muted mt-2">New here? <a href="{{ routes.account_register_url }}" style="color:var(--color-gold);">Create an account</a> and get 200 welcome points.</p>
+
+    <div id="recover" style="margin-top:2rem;">
+      {%- form 'recover_customer_password', class: 'product__options' -%}
+        {{ form.errors | default_errors }}
+        {%- if form.posted_successfully? -%}<p style="color:var(--color-gold);">Reset link sent — check your email.</p>{%- endif -%}
+        <label for="recover-email">Reset password</label>
+        <input class="field" id="recover-email" type="email" name="email" placeholder="Your email">
+        <button type="submit" class="btn btn--ghost">Send Reset Link</button>
+      {%- endform -%}
+    </div>
+  </div>
+</section>

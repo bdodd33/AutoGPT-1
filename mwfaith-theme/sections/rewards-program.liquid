@@ -1,0 +1,104 @@
+<section class="section">
+  <div class="page-width center reveal">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h1>{{ section.settings.heading }}</h1>
+    <p class="text-muted" style="max-width:56ch;margin-inline:auto;">{{ section.settings.subheading }}</p>
+    {%- if shop.customer_accounts_enabled -%}
+      <a href="{{ routes.account_register_url }}" class="btn mt-2">Join Free — Get 200 Points</a>
+    {%- endif -%}
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="page-width">
+    <h2 class="center" style="margin-bottom:2.5rem;">How to Earn</h2>
+    <div class="grid value-props">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'earn' -%}
+          <div class="value-prop reveal" {{ block.shopify_attributes }}>
+            <div class="rewards-tier__points" style="font-size:2rem;">+{{ block.settings.points }}</div>
+            <h3 style="font-size:1.05rem;">{{ block.settings.title }}</h3>
+            <p class="text-muted" style="font-size:.9rem;">{{ block.settings.text }}</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--color-surface);">
+  <div class="page-width">
+    <h2 class="center" style="margin-bottom:2.5rem;">Membership Tiers</h2>
+    <div class="grid rewards-tiers">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'tier' -%}
+          <div class="rewards-tier {% if block.settings.featured %}rewards-tier--featured{% endif %}" {{ block.shopify_attributes }}>
+            <span class="eyebrow">{{ block.settings.name }}</span>
+            <div class="rewards-tier__points">{{ block.settings.threshold }}</div>
+            <p class="text-muted" style="font-size:.82rem;">points / year</p>
+            <div class="rte mt-1" style="font-size:.92rem;text-align:left;">{{ block.settings.perks }}</div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="page-width" style="max-width:760px;">
+    <h2 class="center" style="margin-bottom:2rem;">Rewards FAQ</h2>
+    <div class="product__accordion">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'faq' -%}
+          <details {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.q }}</summary>
+            <div class="content rte">{{ block.settings.a }}</div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <p class="center text-muted mt-2" style="font-size:.82rem;">Powered by your loyalty app of choice (Smile.io, Loyalty Lion, or Rivo). See setup guide in the theme docs.</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Rewards program",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Faith Rewards" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Faith Rewards Program" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "The more you wear your faith, the more you earn. Collect points on every purchase and unlock exclusive perks, early drops, and members-only designs." }
+  ],
+  "blocks": [
+    { "type": "earn", "name": "Earn rule", "settings": [
+      { "type": "text", "id": "points", "label": "Points", "default": "1 pt / $1" },
+      { "type": "text", "id": "title", "label": "Title", "default": "Make a Purchase" },
+      { "type": "text", "id": "text", "label": "Text", "default": "Earn 1 point for every dollar you spend." }
+    ] },
+    { "type": "tier", "name": "Tier", "settings": [
+      { "type": "text", "id": "name", "label": "Name", "default": "Believer" },
+      { "type": "text", "id": "threshold", "label": "Threshold", "default": "0" },
+      { "type": "checkbox", "id": "featured", "label": "Featured", "default": false },
+      { "type": "richtext", "id": "perks", "label": "Perks", "default": "<ul><li>1 pt per $1</li><li>Birthday bonus</li></ul>" }
+    ] },
+    { "type": "faq", "name": "FAQ", "settings": [
+      { "type": "text", "id": "q", "label": "Question", "default": "How do I redeem points?" },
+      { "type": "richtext", "id": "a", "label": "Answer", "default": "<p>At checkout, apply your points for an instant discount.</p>" }
+    ] }
+  ],
+  "presets": [ {
+    "name": "Rewards program",
+    "blocks": [
+      { "type": "earn", "settings": { "points": "1 pt / $1", "title": "Make a Purchase", "text": "Earn 1 point for every dollar spent." } },
+      { "type": "earn", "settings": { "points": "200", "title": "Create an Account", "text": "Instant welcome bonus when you join." } },
+      { "type": "earn", "settings": { "points": "100", "title": "Write a Review", "text": "Share a photo review of your order." } },
+      { "type": "earn", "settings": { "points": "500", "title": "Refer a Friend", "text": "You and your friend both get rewarded." } },
+      { "type": "tier", "settings": { "name": "Believer", "threshold": "0", "featured": false, "perks": "<ul><li>1 pt per $1 spent</li><li>200 welcome points</li><li>Birthday gift</li></ul>" } },
+      { "type": "tier", "settings": { "name": "Disciple", "threshold": "1,000", "featured": true, "perks": "<ul><li>1.25 pts per $1</li><li>Early access to drops</li><li>Free shipping over $50</li></ul>" } },
+      { "type": "tier", "settings": { "name": "Apostle", "threshold": "3,000", "featured": false, "perks": "<ul><li>1.5 pts per $1</li><li>Members-only designs</li><li>Free shipping always</li><li>Annual gift box</li></ul>" } },
+      { "type": "faq", "settings": { "q": "How do I redeem points?", "a": "<p>At checkout, apply your available points for an instant discount on your order.</p>" } },
+      { "type": "faq", "settings": { "q": "Do points expire?", "a": "<p>Points stay active as long as you place an order at least once every 12 months.</p>" } }
+    ]
+  } ]
+}
+{% endschema %}

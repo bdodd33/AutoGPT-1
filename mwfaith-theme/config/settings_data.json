@@ -1,0 +1,23 @@
+{
+  "current": {
+    "color_background": "#0d0d0f",
+    "color_surface": "#15151a",
+    "color_text": "#f5f1e8",
+    "color_accent": "#c8a24a",
+    "color_accent_text": "#0d0d0f",
+    "page_width": 1440,
+    "corner_radius": 4,
+    "social_twitter_handle": "mwfaith",
+    "social_instagram": "https://instagram.com/mwfaith",
+    "social_tiktok": "https://tiktok.com/@mwfaith"
+  },
+  "presets": {
+    "MWFaith Default": {
+      "color_background": "#0d0d0f",
+      "color_surface": "#15151a",
+      "color_text": "#f5f1e8",
+      "color_accent": "#c8a24a",
+      "color_accent_text": "#0d0d0f"
+    }
+  }
+}

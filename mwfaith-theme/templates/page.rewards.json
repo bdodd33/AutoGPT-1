@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "rewards": {
+      "type": "rewards-program",
+      "blocks": {
+        "e1": { "type": "earn", "settings": { "points": "1 pt / $1", "title": "Make a Purchase", "text": "Earn 1 point for every dollar spent." } },
+        "e2": { "type": "earn", "settings": { "points": "200", "title": "Create an Account", "text": "Instant welcome bonus when you join." } },
+        "e3": { "type": "earn", "settings": { "points": "100", "title": "Write a Review", "text": "Share a photo review of your order." } },
+        "e4": { "type": "earn", "settings": { "points": "500", "title": "Refer a Friend", "text": "You and your friend both get rewarded." } },
+        "e5": { "type": "earn", "settings": { "points": "50", "title": "Follow on Social", "text": "Connect with us on Instagram & TikTok." } },
+        "e6": { "type": "earn", "settings": { "points": "150", "title": "Celebrate a Birthday", "text": "A treat from us during your birthday month." } },
+        "t1": { "type": "tier", "settings": { "name": "Believer", "threshold": "0", "featured": false, "perks": "<ul><li>1 pt per $1 spent</li><li>200 welcome points</li><li>Birthday gift</li></ul>" } },
+        "t2": { "type": "tier", "settings": { "name": "Disciple", "threshold": "1,000", "featured": true, "perks": "<ul><li>1.25 pts per $1</li><li>Early access to drops</li><li>Free shipping over $50</li></ul>" } },
+        "t3": { "type": "tier", "settings": { "name": "Apostle", "threshold": "3,000", "featured": false, "perks": "<ul><li>1.5 pts per $1</li><li>Members-only designs</li><li>Free shipping always</li><li>Annual gift box</li></ul>" } },
+        "f1": { "type": "faq", "settings": { "q": "How do I redeem points?", "a": "<p>At checkout, apply your available points for an instant discount on your order.</p>" } },
+        "f2": { "type": "faq", "settings": { "q": "Do points expire?", "a": "<p>Points stay active as long as you place an order at least once every 12 months.</p>" } },
+        "f3": { "type": "faq", "settings": { "q": "How do I check my balance?", "a": "<p>Log into your account or open the rewards widget in the bottom corner of any page.</p>" } }
+      },
+      "block_order": ["e1","e2","e3","e4","e5","e6","t1","t2","t3","f1","f2","f3"]
+    }
+  },
+  "order": ["rewards"]
+}

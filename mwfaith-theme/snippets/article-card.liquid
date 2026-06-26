@@ -1,0 +1,13 @@
+{%- comment -%} Param: article {%- endcomment -%}
+<a href="{{ article.url }}" class="article-card reveal">
+  <div class="article-card__media">
+    {%- if article.image -%}
+      <img src="{{ article.image | image_url: width: 700 }}" alt="{{ article.image.alt | default: article.title | escape }}" width="700" height="438" loading="lazy">
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: '' }}
+    {%- endif -%}
+  </div>
+  <p class="article-card__meta">{{ article.published_at | date: '%b %d, %Y' }}{% if article.tags.size > 0 %} · {{ article.tags.first }}{% endif %}</p>
+  <h3 class="article-card__title">{{ article.title }}</h3>
+  <p class="article-card__excerpt">{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+</a>

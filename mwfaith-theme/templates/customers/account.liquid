@@ -1,0 +1,39 @@
+<section class="section">
+  <div class="page-width">
+    <div class="section-heading reveal">
+      <span class="eyebrow">My Account</span>
+      <h1>Welcome back, {{ customer.first_name | default: 'Friend' }}</h1>
+      <p class="text-muted">Manage your orders, addresses, and Faith Rewards.</p>
+    </div>
+
+    <div class="split" style="align-items:start;">
+      <div>
+        <h3>Order History</h3>
+        {%- if customer.orders.size > 0 -%}
+          <div class="cart-table">
+            {%- for order in customer.orders -%}
+              <div class="cart-row" style="grid-template-columns:1fr auto auto;">
+                <a href="{{ order.customer_url }}"><strong>{{ order.name }}</strong><br><span class="text-muted" style="font-size:.85rem;">{{ order.created_at | date: '%b %d, %Y' }}</span></a>
+                <span>{{ order.financial_status }}</span>
+                <span>{{ order.total_price | money }}</span>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- else -%}
+          <p class="text-muted">No orders yet. <a href="{{ routes.all_products_collection_url }}" style="color:var(--color-gold);">Start shopping →</a></p>
+        {%- endif -%}
+      </div>
+
+      <aside class="rewards-tier rewards-tier--featured">
+        <span class="eyebrow">Faith Rewards</span>
+        <p class="text-muted" style="font-size:.9rem;">Your points balance and tier appear in the rewards widget once your loyalty app is connected.</p>
+        <a href="/pages/rewards" class="btn btn--ghost mt-1">View Rewards</a>
+        <hr style="border-color:var(--color-line);margin:1.5rem 0;">
+        <h4 style="font-family:var(--font-body);">Addresses</h4>
+        <a href="{{ routes.account_addresses_url }}" class="text-muted" style="color:var(--color-gold);">Manage addresses →</a>
+        <br><br>
+        {{ 'customer.log_out' | t | default: 'Log out' | link_to: routes.account_logout_url }}
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<section class="section">
+  <div class="page-width" style="max-width:640px;">
+    <div class="section-heading reveal"><span class="eyebrow">My Account</span><h1>Your Addresses</h1></div>
+
+    {%- form 'customer_address', customer.new_address, class: 'product__options' -%}
+      <h3 style="font-size:1.1rem;">Add a New Address</h3>
+      <input class="field" name="address[first_name]" placeholder="First name">
+      <input class="field" name="address[last_name]" placeholder="Last name">
+      <input class="field" name="address[address1]" placeholder="Address">
+      <input class="field" name="address[city]" placeholder="City">
+      <input class="field" name="address[province]" placeholder="State / Province">
+      <input class="field" name="address[zip]" placeholder="ZIP / Postal code">
+      <input class="field" name="address[country]" placeholder="Country">
+      <button type="submit" class="btn">Save Address</button>
+    {%- endform -%}
+
+    {%- if customer.addresses.size > 0 -%}
+      <h3 style="margin-top:3rem;">Saved Addresses</h3>
+      {%- for address in customer.addresses -%}
+        <div class="testimonial" style="margin-bottom:1rem;">
+          <p>{{ address | format_address }}</p>
+          {%- if address == customer.default_address -%}<span class="product-card__badge" style="position:static;display:inline-block;">Default</span>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+
+    <p class="mt-2"><a href="{{ routes.account_url }}" class="btn btn--ghost">Back to Account</a></p>
+  </div>
+</section>

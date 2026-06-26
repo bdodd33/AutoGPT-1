@@ -1,0 +1,51 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "MWFaith — Luxury Christian Apparel",
+    "theme_version": "1.0.0",
+    "theme_author": "MWFaith",
+    "theme_documentation_url": "https://mwfaith.com",
+    "theme_support_url": "https://mwfaith.com/pages/contact"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      { "type": "image_picker", "id": "logo", "label": "Logo" },
+      { "type": "image_picker", "id": "favicon", "label": "Favicon (32x32)" }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color", "id": "color_background", "label": "Background", "default": "#0d0d0f" },
+      { "type": "color", "id": "color_surface", "label": "Surface / cards", "default": "#15151a" },
+      { "type": "color", "id": "color_text", "label": "Text", "default": "#f5f1e8" },
+      { "type": "color", "id": "color_accent", "label": "Accent (gold)", "default": "#c8a24a" },
+      { "type": "color", "id": "color_accent_text", "label": "Text on accent", "default": "#0d0d0f" }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      { "type": "paragraph", "content": "MWFaith uses Cormorant Garamond (display) + Inter (body), loaded from Google Fonts for the luxury editorial look. To change typefaces, edit the --font-heading / --font-body variables and the font <link> in layout/theme.liquid." }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      { "type": "range", "id": "page_width", "min": 1000, "max": 1600, "step": 20, "unit": "px", "label": "Page width", "default": 1440 },
+      { "type": "range", "id": "corner_radius", "min": 0, "max": 20, "step": 1, "unit": "px", "label": "Corner radius", "default": 4 }
+    ]
+  },
+  {
+    "name": "Social & SEO",
+    "settings": [
+      { "type": "image_picker", "id": "social_share_image", "label": "Default social share image" },
+      { "type": "text", "id": "social_twitter_handle", "label": "X / Twitter handle (no @)" },
+      { "type": "url", "id": "social_instagram", "label": "Instagram URL" },
+      { "type": "url", "id": "social_tiktok", "label": "TikTok URL" },
+      { "type": "url", "id": "social_facebook", "label": "Facebook URL" },
+      { "type": "url", "id": "social_youtube", "label": "YouTube URL" }
+    ]
+  }
+]
