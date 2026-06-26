@@ -1,0 +1,22 @@
+<section class="section">
+  <div class="page-width" style="max-width:440px;">
+    <div class="section-heading center reveal">
+      <span class="eyebrow">Join Faith Rewards — Get 200 Points</span>
+      <h1>Create Account</h1>
+    </div>
+
+    {%- form 'create_customer', class: 'product__options' -%}
+      {{ form.errors | default_errors }}
+      <div><label for="reg-fn">First name</label><input class="field" id="reg-fn" type="text" name="customer[first_name]"></div>
+      <div><label for="reg-ln">Last name</label><input class="field" id="reg-ln" type="text" name="customer[last_name]"></div>
+      <div><label for="reg-email">Email</label><input class="field" id="reg-email" type="email" name="customer[email]" required></div>
+      <div><label for="reg-pass">Password</label><input class="field" id="reg-pass" type="password" name="customer[password]" required></div>
+      <label style="display:flex;gap:.5rem;align-items:center;text-transform:none;letter-spacing:0;">
+        <input type="checkbox" name="customer[accepts_marketing]" value="true" checked> Join the community & rewards emails
+      </label>
+      <button type="submit" class="btn btn--block">Create Account</button>
+    {%- endform -%}
+
+    <p class="center text-muted mt-2">Already a member? <a href="{{ routes.account_login_url }}" style="color:var(--color-gold);">Sign in</a></p>
+  </div>
+</section>

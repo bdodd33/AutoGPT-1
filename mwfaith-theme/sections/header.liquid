@@ -1,0 +1,42 @@
+<header class="site-header">
+  <div class="page-width site-header__inner">
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+      {% render 'icon', name: 'menu' %}
+    </button>
+
+    <nav class="site-nav" data-site-nav aria-label="Primary">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+    </nav>
+
+    <a href="{{ routes.root_url }}" class="site-header__logo">
+      {%- if section.settings.logo != blank -%}
+        <img src="{{ section.settings.logo | image_url: width: 320 }}" alt="{{ shop.name }}" width="160" style="margin-inline:auto;">
+      {%- else -%}
+        MW<span>Faith</span>
+      {%- endif -%}
+    </a>
+
+    <div class="site-header__actions">
+      <a href="{{ routes.search_url }}" class="icon-btn" aria-label="Search">{% render 'icon', name: 'search' %}</a>
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="icon-btn" aria-label="Account">{% render 'icon', name: 'user' %}</a>
+      {%- endif -%}
+      <button class="icon-btn" data-cart-open aria-label="Cart">
+        {% render 'icon', name: 'bag' %}
+        <span class="cart-count" data-cart-count {% if cart.item_count == 0 %}hidden{% endif %}>{{ cart.item_count }}</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo image" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}

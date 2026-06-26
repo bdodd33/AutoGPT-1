@@ -1,0 +1,22 @@
+{
+  "general": {
+    "skip_to_content": "Skip to content",
+    "search": "Search",
+    "close": "Close"
+  },
+  "customer": {
+    "log_out": "Log out",
+    "log_in": "Log in",
+    "create_account": "Create account",
+    "account": "Account"
+  },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out"
+  },
+  "cart": {
+    "title": "Your cart",
+    "checkout": "Checkout",
+    "empty": "Your cart is empty"
+  }
+}

@@ -1,0 +1,97 @@
+{%- comment -%}
+  SEO meta: Open Graph, Twitter Cards, and Schema.org JSON-LD.
+  Renders contextually for products, articles, collections, and the storefront.
+{%- endcomment -%}
+
+<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:title" content="{{ page_title | escape }}">
+<meta property="og:type" content="{% if request.page_type == 'product' %}product{% elsif request.page_type == 'article' %}article{% else %}website{% endif %}">
+{%- if page_description -%}<meta property="og:description" content="{{ page_description | escape }}">{%- endif -%}
+
+{%- if request.page_type == 'product' and product.featured_media -%}
+  <meta property="og:image" content="https:{{ product.featured_media | image_url: width: 1200 }}">
+  <meta property="product:price:amount" content="{{ product.price | money_without_currency | strip_html }}">
+  <meta property="product:price:currency" content="{{ cart.currency.iso_code }}">
+{%- elsif request.page_type == 'article' and article.image -%}
+  <meta property="og:image" content="https:{{ article.image | image_url: width: 1200 }}">
+{%- elsif settings.social_share_image != blank -%}
+  <meta property="og:image" content="https:{{ settings.social_share_image | image_url: width: 1200 }}">
+{%- endif -%}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title | escape }}">
+{%- if page_description -%}<meta name="twitter:description" content="{{ page_description | escape }}">{%- endif -%}
+{%- if settings.social_twitter_handle != blank -%}<meta name="twitter:site" content="@{{ settings.social_twitter_handle }}">{%- endif -%}
+
+{%- comment -%} ---------- Organization + WebSite (storefront) ---------- {%- endcomment -%}
+{%- if request.page_type == 'index' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.url | append: '/' | json }},
+  {% if settings.logo %}"logo": "https:{{ settings.logo | image_url: width: 400 }}",{% endif %}
+  "sameAs": [
+    {%- assign socials = '' -%}
+    {%- if settings.social_instagram != blank -%}{%- assign socials = socials | append: settings.social_instagram | append: ',' -%}{%- endif -%}
+    {%- if settings.social_tiktok != blank -%}{%- assign socials = socials | append: settings.social_tiktok | append: ',' -%}{%- endif -%}
+    {%- if settings.social_facebook != blank -%}{%- assign socials = socials | append: settings.social_facebook | append: ',' -%}{%- endif -%}
+    {%- if settings.social_youtube != blank -%}{%- assign socials = socials | append: settings.social_youtube -%}{%- endif -%}
+    {%- assign socials = socials | split: ',' -%}
+    {%- for s in socials -%}{{ s | strip | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.url | append: '/' | json }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ shop.url }}/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{%- endif -%}
+
+{%- comment -%} ---------- Product structured data ---------- {%- endcomment -%}
+{%- if request.page_type == 'product' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "description": {{ product.description | strip_html | truncate: 300 | json }},
+  {% if product.featured_media %}"image": "https:{{ product.featured_media | image_url: width: 1200 }}",{% endif %}
+  "brand": { "@type": "Brand", "name": {{ shop.name | json }} },
+  "sku": {{ product.selected_or_first_available_variant.sku | json }},
+  "offers": {
+    "@type": "Offer",
+    "url": {{ canonical_url | json }},
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "price": "{{ product.price | divided_by: 100.0 }}",
+    "availability": "https://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}"
+  }
+}
+</script>
+{%- endif -%}
+
+{%- comment -%} ---------- Article structured data ---------- {%- endcomment -%}
+{%- if request.page_type == 'article' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ article.title | json }},
+  {% if article.image %}"image": "https:{{ article.image | image_url: width: 1200 }}",{% endif %}
+  "datePublished": {{ article.published_at | date: '%Y-%m-%d' | json }},
+  "author": { "@type": "Person", "name": {{ article.author | json }} },
+  "publisher": { "@type": "Organization", "name": {{ shop.name | json }} }
+}
+</script>
+{%- endif -%}

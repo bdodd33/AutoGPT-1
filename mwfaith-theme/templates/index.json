@@ -1,0 +1,80 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Luxury Christian Apparel",
+        "heading": "Wear Your Faith. Walk in Purpose.",
+        "subheading": "Premium, made-to-order garments designed for the modern believer. Every piece is a quiet testimony — crafted to be worn, lived in, and noticed.",
+        "button_label": "Shop the Collection",
+        "button_label_2": "Our Story"
+      }
+    },
+    "value-props": {
+      "type": "value-props",
+      "blocks": {
+        "b1": { "type": "item", "settings": { "icon": "leaf", "title": "Premium & Sustainable", "text": "Made to order on heavyweight, ethically sourced blanks — zero waste." } },
+        "b2": { "type": "item", "settings": { "icon": "truck", "title": "Fast, Tracked Shipping", "text": "Printed and shipped from the US within 3–5 business days." } },
+        "b3": { "type": "item", "settings": { "icon": "gift", "title": "Faith Rewards", "text": "Earn points on every order and unlock exclusive drops." } },
+        "b4": { "type": "item", "settings": { "icon": "heart", "title": "Purpose-Driven", "text": "A portion of every purchase supports faith-based outreach." } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Best Sellers",
+        "heading": "The Signature Collection",
+        "subheading": "Our most-loved designs — premium garment-dyed and heavyweight tees that wear like a testimony.",
+        "products_to_show": 8,
+        "center": true,
+        "button_label": "Shop All"
+      }
+    },
+    "collections": {
+      "type": "collection-list",
+      "settings": { "eyebrow": "Shop by Theme", "heading": "Explore the Collections" },
+      "blocks": {
+        "c1": { "type": "collection", "settings": { "title": "Minimalist Faith" } },
+        "c2": { "type": "collection", "settings": { "title": "Scripture & Verse" } },
+        "c3": { "type": "collection", "settings": { "title": "Streetwear Drops" } }
+      },
+      "block_order": ["c1", "c2", "c3"]
+    },
+    "story": {
+      "type": "image-with-text",
+      "settings": {
+        "eyebrow": "Our Story",
+        "heading": "Faith, Made to Last",
+        "text": "<p>MWFaith was born from a simple conviction: what we wear should mean something. Each garment is printed on demand on premium, ethically sourced blanks — so nothing is wasted, and every piece is made just for you. From the weight of the fabric to the depth of the print, we obsess over the details so your faith always shows up in its best form.</p>",
+        "button_label": "Read Our Story"
+      }
+    },
+    "rewards": {
+      "type": "rewards-promo",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Create your account", "text": "Sign up free and instantly receive 200 welcome points." } },
+        "s2": { "type": "step", "settings": { "title": "Earn on everything", "text": "1 point per $1 spent, plus points for reviews, referrals & birthdays." } },
+        "s3": { "type": "step", "settings": { "title": "Redeem & ascend", "text": "Cash points in for discounts and climb tiers for bigger perks." } }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "t1": { "type": "quote", "settings": { "quote": "The quality is unreal — feels like a $90 designer tee. I get stopped and asked about it constantly.", "author": "Sarah M., Texas" } },
+        "t2": { "type": "quote", "settings": { "quote": "Finally, faith apparel that looks high-end. The minimalist cross design is my everyday go-to.", "author": "Marcus D., California" } },
+        "t3": { "type": "quote", "settings": { "quote": "Earned enough Faith Rewards points for a free hoodie. The community drops are addictive!", "author": "Jenna R., Florida" } }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+    "blog": {
+      "type": "blog-posts",
+      "settings": { "eyebrow": "The Journal", "heading": "Faith, Style & Purpose", "posts_to_show": 3 }
+    },
+    "community": {
+      "type": "community-signup"
+    }
+  },
+  "order": ["hero", "value-props", "featured", "collections", "story", "rewards", "testimonials", "blog", "community"]
+}

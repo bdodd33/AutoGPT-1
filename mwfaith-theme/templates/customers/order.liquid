@@ -1,0 +1,29 @@
+<section class="section">
+  <div class="page-width">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Order {{ order.name }}</span>
+      <h1>Order Details</h1>
+      <p class="text-muted">Placed {{ order.created_at | date: '%B %d, %Y' }} · {{ order.financial_status }} · {{ order.fulfillment_status }}</p>
+    </div>
+
+    <div class="cart-table">
+      {%- for line in order.line_items -%}
+        <div class="cart-row">
+          {%- if line.image -%}<img src="{{ line.image | image_url: width: 160 }}" alt="{{ line.title | escape }}" width="80" height="100">{%- else -%}<span></span>{%- endif -%}
+          <div class="cart-row__info"><strong>{{ line.title }}</strong><p class="text-muted" style="font-size:.85rem;">Qty: {{ line.quantity }}</p></div>
+          <span></span>
+          <span>{{ line.final_line_price | money }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="cart-foot">
+      <a href="{{ routes.account_url }}" class="btn btn--ghost">Back to Account</a>
+      <div class="cart-foot__totals">
+        <p class="text-muted">Subtotal: {{ order.line_items_subtotal_price | money }}</p>
+        <p class="text-muted">Shipping: {{ order.shipping_price | money }}</p>
+        <p class="product__price">Total: {{ order.total_price | money }}</p>
+      </div>
+    </div>
+  </div>
+</section>

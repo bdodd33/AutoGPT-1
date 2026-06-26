@@ -1,0 +1,43 @@
+<section class="section section--tight">
+  <div class="page-width">
+    <div class="grid value-props">
+      {%- for block in section.blocks -%}
+        <div class="value-prop reveal" {{ block.shopify_attributes }}>
+          <span class="value-prop__icon">{% render 'icon', name: block.settings.icon %}</span>
+          <h3 style="font-size:1.1rem;">{{ block.settings.title }}</h3>
+          <p class="text-muted" style="font-size:.9rem;">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Value props",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "default": "leaf",
+          "options": [
+            {"value":"leaf","label":"Leaf"},{"value":"truck","label":"Truck"},
+            {"value":"gift","label":"Gift"},{"value":"heart","label":"Heart"},{"value":"cross","label":"Cross"}
+          ]},
+        { "type": "text", "id": "title", "label": "Title", "default": "Premium Blanks" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Heavyweight, garment-dyed cotton built to last." }
+      ]
+    }
+  ],
+  "presets": [ {
+    "name": "Value props",
+    "blocks": [
+      { "type": "item", "settings": { "icon": "leaf", "title": "Premium & Sustainable", "text": "Made to order on heavyweight, ethically sourced blanks — zero waste." } },
+      { "type": "item", "settings": { "icon": "truck", "title": "Fast, Tracked Shipping", "text": "Printed and shipped from the US within 3–5 business days." } },
+      { "type": "item", "settings": { "icon": "gift", "title": "Faith Rewards", "text": "Earn points on every order and unlock exclusive drops." } },
+      { "type": "item", "settings": { "icon": "heart", "title": "Purpose-Driven", "text": "A portion of every purchase supports faith-based outreach." } }
+    ]
+  } ]
+}
+{% endschema %}

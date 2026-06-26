@@ -1,0 +1,38 @@
+<section class="section" style="background: var(--color-surface);">
+  <div class="page-width newsletter reveal">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>{{ section.settings.heading }}</h2>
+    <p class="text-muted" style="max-width:52ch;margin-inline:auto;">{{ section.settings.subheading }}</p>
+
+    {%- form 'customer', class: 'newsletter__form' -%}
+      <input type="hidden" name="contact[tags]" value="community, newsletter">
+      <input type="hidden" name="contact[accepts_marketing]" value="true">
+      {%- if form.posted_successfully? -%}
+        <p class="center" style="color:var(--color-gold);flex-basis:100%;">Welcome to the family. Check your inbox to confirm and claim your welcome reward.</p>
+      {%- else -%}
+        <label class="visually-hidden" for="community-email">Email</label>
+        <input id="community-email" class="field" type="email" name="contact[email]" placeholder="Enter your email" required>
+        <button type="submit" class="btn">{{ section.settings.button_label }}</button>
+      {%- endif -%}
+      {%- if form.errors -%}
+        <p class="center" style="color:#e57373;flex-basis:100%;">{{ form.errors | default_errors }}</p>
+      {%- endif -%}
+    {%- endform -%}
+
+    <p class="text-muted" style="font-size:.78rem;margin-top:1rem;">{{ section.settings.disclaimer }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Community signup",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The MWFaith Community" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Join the Movement" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Be first to access limited drops, devotionals, styling tips, and members-only rewards. Sign up and instantly unlock your welcome offer." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Join Free" },
+    { "type": "text", "id": "disclaimer", "label": "Disclaimer", "default": "By subscribing you agree to receive marketing emails. Unsubscribe anytime." }
+  ],
+  "presets": [ { "name": "Community signup" } ]
+}
+{% endschema %}

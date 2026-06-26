@@ -1,0 +1,54 @@
+<footer class="site-footer">
+  <div class="page-width site-footer__grid">
+    <div class="site-footer__brand">
+      <div class="site-header__logo" style="text-align:left;margin-bottom:1rem;">MW<span>Faith</span></div>
+      <p>{{ section.settings.tagline }}</p>
+      <div class="social-row mt-1">
+        {%- if settings.social_instagram != blank -%}<a href="{{ settings.social_instagram }}" aria-label="Instagram">{% render 'icon', name: 'instagram' %}</a>{%- endif -%}
+        {%- if settings.social_tiktok != blank -%}<a href="{{ settings.social_tiktok }}" aria-label="TikTok">{% render 'icon', name: 'tiktok' %}</a>{%- endif -%}
+        {%- if settings.social_facebook != blank -%}<a href="{{ settings.social_facebook }}" aria-label="Facebook">{% render 'icon', name: 'facebook' %}</a>{%- endif -%}
+        {%- if settings.social_youtube != blank -%}<a href="{{ settings.social_youtube }}" aria-label="YouTube">{% render 'icon', name: 'youtube' %}</a>{%- endif -%}
+      </div>
+    </div>
+
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'menu' -%}
+        <div {{ block.shopify_attributes }}>
+          <h4>{{ block.settings.heading }}</h4>
+          <ul>
+            {%- for link in block.settings.menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="page-width site-footer__bottom">
+    <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} — Wear Your Faith. Walk in Purpose.</span>
+    <span>Secure checkout · Shopify Payments · TikTok Shop</span>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "textarea", "id": "tagline", "label": "Brand tagline", "default": "MWFaith is luxury Christian apparel for the modern believer — premium garments, made-to-order, designed to start conversations that matter." }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu column",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Shop" },
+        { "type": "link_list", "id": "menu", "label": "Menu" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Footer", "blocks": [ { "type": "menu" }, { "type": "menu" }, { "type": "menu" } ] }
+  ]
+}
+{% endschema %}

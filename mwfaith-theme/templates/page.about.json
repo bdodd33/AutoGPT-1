@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "intro": {
+      "type": "image-with-text",
+      "settings": {
+        "eyebrow": "Our Story",
+        "heading": "Born From Conviction",
+        "text": "<p>MWFaith began with a question: what if faith apparel could feel as premium as the designer brands we admire — without compromising the message? We set out to build a luxury Christian label where craftsmanship and conviction live together. Every garment is made to order on premium blanks, so we waste nothing and pour everything into quality.</p>"
+      }
+    },
+    "mission": {
+      "type": "image-with-text",
+      "settings": {
+        "reverse": true,
+        "eyebrow": "Our Mission",
+        "heading": "Fashion as a Testimony",
+        "text": "<p>We believe what you wear can open doors. Our designs are crafted to be conversation starters — quiet, confident expressions of faith that feel current and look exceptional. A portion of every purchase supports faith-based outreach, so your wardrobe makes a difference far beyond your closet.</p>"
+      }
+    },
+    "values": {
+      "type": "value-props",
+      "blocks": {
+        "v1": { "type": "item", "settings": { "icon": "leaf", "title": "Premium & Sustainable", "text": "Made to order on heavyweight, ethically sourced blanks — zero waste." } },
+        "v2": { "type": "item", "settings": { "icon": "cross", "title": "Faith First", "text": "Every design is rooted in scripture and made to spark conversation." } },
+        "v3": { "type": "item", "settings": { "icon": "heart", "title": "Give Back", "text": "A portion of every purchase supports faith-based outreach." } }
+      },
+      "block_order": ["v1", "v2", "v3"]
+    },
+    "community": { "type": "community-signup" }
+  },
+  "order": ["intro", "mission", "values", "community"]
+}

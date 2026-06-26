@@ -1,0 +1,36 @@
+<section class="section">
+  <div class="page-width">
+    <div class="section-heading center reveal">
+      <span class="eyebrow">Search</span>
+      <h1>{% if search.performed %}Results for “{{ search.terms | escape }}”{% else %}Search{% endif %}</h1>
+    </div>
+
+    <form action="{{ routes.search_url }}" method="get" class="newsletter__form" style="margin-bottom:3rem;">
+      <input class="field" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products & articles…" required>
+      <button type="submit" class="btn">Search</button>
+    </form>
+
+    {%- if search.performed -%}
+      {%- if search.results.size > 0 -%}
+        <div class="grid product-grid">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' -%}
+              {% render 'product-card', product: item %}
+            {%- else -%}
+              <a href="{{ item.url }}" class="article-card reveal">
+                <p class="article-card__meta">{{ item.object_type }}</p>
+                <h3 class="article-card__title">{{ item.title }}</h3>
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <p class="center text-muted">No results found. Try another search.</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Search", "settings": [] }
+{% endschema %}

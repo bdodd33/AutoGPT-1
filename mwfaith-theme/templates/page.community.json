@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-with-text",
+      "settings": {
+        "eyebrow": "The MWFaith Community",
+        "heading": "More Than a Brand — A Family of Believers",
+        "text": "<p>When you wear MWFaith, you join a community of people using fashion to start conversations that matter. Members get exclusive devotionals, first access to limited drops, styling inspiration, prayer threads, and members-only rewards. Sign up free below and become part of the movement.</p>"
+      }
+    },
+    "signup": { "type": "community-signup" },
+    "perks": {
+      "type": "value-props",
+      "blocks": {
+        "p1": { "type": "item", "settings": { "icon": "gift", "title": "Exclusive Drops", "text": "Shop limited designs before anyone else." } },
+        "p2": { "type": "item", "settings": { "icon": "heart", "title": "Weekly Devotionals", "text": "Encouragement delivered to your inbox." } },
+        "p3": { "type": "item", "settings": { "icon": "cross", "title": "Prayer Wall", "text": "Share and lift up one another in prayer." } },
+        "p4": { "type": "item", "settings": { "icon": "leaf", "title": "Give Back Together", "text": "See the outreach your purchases support." } }
+      },
+      "block_order": ["p1","p2","p3","p4"]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": { "eyebrow": "Voices", "heading": "From Our Members" },
+      "blocks": {
+        "m1": { "type": "quote", "settings": { "quote": "This community has become my daily encouragement. The drops are gorgeous and the devotionals hit different.", "author": "Hannah K., Georgia" } },
+        "m2": { "type": "quote", "settings": { "quote": "I joined for the shirts and stayed for the people. The prayer wall is the real deal.", "author": "Andre P., Ohio" } },
+        "m3": { "type": "quote", "settings": { "quote": "Best loyalty program I've been part of — I actually feel like a member, not a customer.", "author": "Lydia S., Arizona" } }
+      },
+      "block_order": ["m1", "m2", "m3"]
+    }
+  },
+  "order": ["hero", "perks", "signup", "testimonials"]
+}

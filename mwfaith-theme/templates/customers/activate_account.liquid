@@ -1,0 +1,12 @@
+<section class="section">
+  <div class="page-width" style="max-width:440px;">
+    <div class="section-heading center reveal"><h1>Activate Your Account</h1><p class="text-muted">Set a password to finish creating your account.</p></div>
+    {%- form 'activate_customer_password', class: 'product__options' -%}
+      {{ form.errors | default_errors }}
+      <div><label for="ac1">Password</label><input class="field" id="ac1" type="password" name="customer[password]" required></div>
+      <div><label for="ac2">Confirm password</label><input class="field" id="ac2" type="password" name="customer[password_confirmation]" required></div>
+      <button type="submit" class="btn btn--block">Activate Account</button>
+      <button type="submit" name="decline" class="btn btn--ghost btn--block">Decline Invitation</button>
+    {%- endform -%}
+  </div>
+</section>
