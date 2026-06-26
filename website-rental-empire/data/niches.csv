@@ -1,0 +1,21 @@
+niche,avg_job_value_usd,value_score,demand_score,rankability_score,urgency_score,rent_low_usd,rent_high_usd,best_lead_model
+Water Damage Restoration,3500,10,8,6,10,1500,4000,pay_per_lead
+Mold Remediation,3500,9,6,7,9,1200,3000,pay_per_lead
+Foundation Repair,9000,10,6,7,6,1500,3500,flat_or_ppl
+Roofing (Repair & Storm),9000,10,9,4,7,1500,4000,ppl_or_revshare
+Towing & Roadside,150,4,9,7,10,800,2000,pay_per_call
+Junk Removal,400,4,9,8,7,600,1500,flat_monthly
+Tree Removal & Trimming,1200,7,8,6,8,1000,2500,pay_per_lead
+Epoxy Garage Flooring,3000,8,5,8,4,800,2000,flat_monthly
+Auto Glass & Windshield,350,5,8,7,9,800,2000,pay_per_call
+HVAC Repair & Install,6000,9,9,4,9,1500,3500,ppl_or_revshare
+Garage Door Repair,450,6,8,6,9,1000,2500,pay_per_call
+Concrete & Driveway,4500,8,7,6,5,1000,2500,pay_per_lead
+Pest Control,300,5,9,5,7,800,2000,flat_or_revshare
+Fence Installation,4000,8,7,7,4,900,2200,flat_monthly
+Artificial Turf Install,7000,9,5,8,3,900,2200,flat_monthly
+Solar Installation,18000,10,7,4,4,2000,5000,pay_per_lead
+Bath & Kitchen Remodel,15000,10,7,5,4,1500,4000,pay_per_lead
+Dumpster Rental,450,5,7,7,8,800,1800,pay_per_call
+Pressure Washing,350,4,7,8,6,600,1500,flat_monthly
+Asphalt Paving & Sealcoat,5000,8,6,7,5,1000,2500,pay_per_lead

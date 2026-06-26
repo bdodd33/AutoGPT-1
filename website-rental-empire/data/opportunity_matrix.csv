@@ -1,0 +1,401 @@
+rank,niche,city,opportunity_score,niche_score,city_score,est_monthly_rent_usd,avg_job_value_usd,best_lead_model
+1,Water Damage Restoration,"Boise, ID",82.2,85.0,78.0,2900,3500,pay_per_lead
+2,Water Damage Restoration,"Raleigh, NC",81.0,85.0,75.0,3050,3500,pay_per_lead
+3,Water Damage Restoration,"Austin, TX",80.8,85.0,74.5,3100,3500,pay_per_lead
+4,Water Damage Restoration,"Cape Coral-Fort Myers, FL",80.8,85.0,74.5,2900,3500,pay_per_lead
+5,Water Damage Restoration,"Greenville, SC",80.8,85.0,74.5,2850,3500,pay_per_lead
+6,Water Damage Restoration,"Phoenix, AZ",80.6,85.0,74.0,3100,3500,pay_per_lead
+7,Water Damage Restoration,"Dallas-Fort Worth, TX",80.4,85.0,73.5,3150,3500,pay_per_lead
+8,Water Damage Restoration,"Huntsville, AL",80.0,85.0,72.5,2850,3500,pay_per_lead
+9,Water Damage Restoration,"Charleston, SC",79.8,85.0,72.0,2900,3500,pay_per_lead
+10,Water Damage Restoration,"Colorado Springs, CO",79.8,85.0,72.0,2900,3500,pay_per_lead
+11,Water Damage Restoration,"Houston, TX",79.4,85.0,71.0,3150,3500,pay_per_lead
+12,Water Damage Restoration,"Tampa, FL",79.4,85.0,71.0,3050,3500,pay_per_lead
+13,Water Damage Restoration,"Orlando, FL",79.4,85.0,71.0,3050,3500,pay_per_lead
+14,Water Damage Restoration,"Charlotte, NC",79.4,85.0,71.0,3050,3500,pay_per_lead
+15,Water Damage Restoration,"Nashville, TN",79.4,85.0,71.0,3050,3500,pay_per_lead
+16,Water Damage Restoration,"San Antonio, TX",79.4,85.0,71.0,2950,3500,pay_per_lead
+17,Water Damage Restoration,"Oklahoma City, OK",78.6,85.0,69.0,2900,3500,pay_per_lead
+18,Water Damage Restoration,"Atlanta, GA",78.2,85.0,68.0,3100,3500,pay_per_lead
+19,Water Damage Restoration,"Jacksonville, FL",78.2,85.0,68.0,2900,3500,pay_per_lead
+20,Water Damage Restoration,"Las Vegas, NV",78.0,85.0,67.5,2950,3500,pay_per_lead
+21,HVAC Repair & Install,"Boise, ID",77.7,77.5,78.0,2650,6000,ppl_or_revshare
+22,Mold Remediation,"Boise, ID",77.7,77.5,78.0,2250,3500,pay_per_lead
+23,HVAC Repair & Install,"Raleigh, NC",76.5,77.5,75.0,2750,6000,ppl_or_revshare
+24,Mold Remediation,"Raleigh, NC",76.5,77.5,75.0,2300,3500,pay_per_lead
+25,HVAC Repair & Install,"Austin, TX",76.3,77.5,74.5,2800,6000,ppl_or_revshare
+26,HVAC Repair & Install,"Cape Coral-Fort Myers, FL",76.3,77.5,74.5,2650,6000,ppl_or_revshare
+27,HVAC Repair & Install,"Greenville, SC",76.3,77.5,74.5,2600,6000,ppl_or_revshare
+28,Mold Remediation,"Austin, TX",76.3,77.5,74.5,2350,3500,pay_per_lead
+29,Mold Remediation,"Cape Coral-Fort Myers, FL",76.3,77.5,74.5,2250,3500,pay_per_lead
+30,Mold Remediation,"Greenville, SC",76.3,77.5,74.5,2200,3500,pay_per_lead
+31,Roofing (Repair & Storm),"Boise, ID",76.2,75.0,78.0,2900,9000,ppl_or_revshare
+32,Towing & Roadside,"Boise, ID",76.2,75.0,78.0,1500,150,pay_per_call
+33,HVAC Repair & Install,"Phoenix, AZ",76.1,77.5,74.0,2800,6000,ppl_or_revshare
+34,Mold Remediation,"Phoenix, AZ",76.1,77.5,74.0,2350,3500,pay_per_lead
+35,HVAC Repair & Install,"Dallas-Fort Worth, TX",75.9,77.5,73.5,2850,6000,ppl_or_revshare
+36,Mold Remediation,"Dallas-Fort Worth, TX",75.9,77.5,73.5,2400,3500,pay_per_lead
+37,HVAC Repair & Install,"Huntsville, AL",75.5,77.5,72.5,2600,6000,ppl_or_revshare
+38,Mold Remediation,"Huntsville, AL",75.5,77.5,72.5,2200,3500,pay_per_lead
+39,HVAC Repair & Install,"Charleston, SC",75.3,77.5,72.0,2650,6000,ppl_or_revshare
+40,HVAC Repair & Install,"Colorado Springs, CO",75.3,77.5,72.0,2650,6000,ppl_or_revshare
+41,Mold Remediation,"Charleston, SC",75.3,77.5,72.0,2250,3500,pay_per_lead
+42,Mold Remediation,"Colorado Springs, CO",75.3,77.5,72.0,2250,3500,pay_per_lead
+43,Roofing (Repair & Storm),"Raleigh, NC",75.0,75.0,75.0,3050,9000,ppl_or_revshare
+44,Towing & Roadside,"Raleigh, NC",75.0,75.0,75.0,1550,150,pay_per_call
+45,HVAC Repair & Install,"Houston, TX",74.9,77.5,71.0,2850,6000,ppl_or_revshare
+46,HVAC Repair & Install,"Tampa, FL",74.9,77.5,71.0,2750,6000,ppl_or_revshare
+47,HVAC Repair & Install,"Orlando, FL",74.9,77.5,71.0,2750,6000,ppl_or_revshare
+48,HVAC Repair & Install,"Charlotte, NC",74.9,77.5,71.0,2750,6000,ppl_or_revshare
+49,HVAC Repair & Install,"Nashville, TN",74.9,77.5,71.0,2750,6000,ppl_or_revshare
+50,HVAC Repair & Install,"San Antonio, TX",74.9,77.5,71.0,2700,6000,ppl_or_revshare
+51,Mold Remediation,"Houston, TX",74.9,77.5,71.0,2400,3500,pay_per_lead
+52,Mold Remediation,"Tampa, FL",74.9,77.5,71.0,2300,3500,pay_per_lead
+53,Mold Remediation,"Orlando, FL",74.9,77.5,71.0,2300,3500,pay_per_lead
+54,Mold Remediation,"Charlotte, NC",74.9,77.5,71.0,2300,3500,pay_per_lead
+55,Mold Remediation,"Nashville, TN",74.9,77.5,71.0,2300,3500,pay_per_lead
+56,Mold Remediation,"San Antonio, TX",74.9,77.5,71.0,2250,3500,pay_per_lead
+57,Roofing (Repair & Storm),"Austin, TX",74.8,75.0,74.5,3100,9000,ppl_or_revshare
+58,Roofing (Repair & Storm),"Cape Coral-Fort Myers, FL",74.8,75.0,74.5,2900,9000,ppl_or_revshare
+59,Roofing (Repair & Storm),"Greenville, SC",74.8,75.0,74.5,2850,9000,ppl_or_revshare
+60,Towing & Roadside,"Austin, TX",74.8,75.0,74.5,1550,150,pay_per_call
+61,Towing & Roadside,"Cape Coral-Fort Myers, FL",74.8,75.0,74.5,1500,150,pay_per_call
+62,Towing & Roadside,"Greenville, SC",74.8,75.0,74.5,1450,150,pay_per_call
+63,Foundation Repair,"Boise, ID",74.7,72.5,78.0,2650,9000,flat_or_ppl
+64,Tree Removal & Trimming,"Boise, ID",74.7,72.5,78.0,1850,1200,pay_per_lead
+65,Garage Door Repair,"Boise, ID",74.7,72.5,78.0,1850,450,pay_per_call
+66,Auto Glass & Windshield,"Boise, ID",74.7,72.5,78.0,1500,350,pay_per_call
+67,Roofing (Repair & Storm),"Phoenix, AZ",74.6,75.0,74.0,3100,9000,ppl_or_revshare
+68,Towing & Roadside,"Phoenix, AZ",74.6,75.0,74.0,1550,150,pay_per_call
+69,Roofing (Repair & Storm),"Dallas-Fort Worth, TX",74.4,75.0,73.5,3150,9000,ppl_or_revshare
+70,Towing & Roadside,"Dallas-Fort Worth, TX",74.4,75.0,73.5,1600,150,pay_per_call
+71,HVAC Repair & Install,"Oklahoma City, OK",74.1,77.5,69.0,2650,6000,ppl_or_revshare
+72,Mold Remediation,"Oklahoma City, OK",74.1,77.5,69.0,2250,3500,pay_per_lead
+73,Roofing (Repair & Storm),"Huntsville, AL",74.0,75.0,72.5,2850,9000,ppl_or_revshare
+74,Towing & Roadside,"Huntsville, AL",74.0,75.0,72.5,1450,150,pay_per_call
+75,Roofing (Repair & Storm),"Charleston, SC",73.8,75.0,72.0,2900,9000,ppl_or_revshare
+76,Roofing (Repair & Storm),"Colorado Springs, CO",73.8,75.0,72.0,2900,9000,ppl_or_revshare
+77,Towing & Roadside,"Charleston, SC",73.8,75.0,72.0,1500,150,pay_per_call
+78,Towing & Roadside,"Colorado Springs, CO",73.8,75.0,72.0,1500,150,pay_per_call
+79,HVAC Repair & Install,"Atlanta, GA",73.7,77.5,68.0,2800,6000,ppl_or_revshare
+80,HVAC Repair & Install,"Jacksonville, FL",73.7,77.5,68.0,2650,6000,ppl_or_revshare
+81,Mold Remediation,"Atlanta, GA",73.7,77.5,68.0,2350,3500,pay_per_lead
+82,Mold Remediation,"Jacksonville, FL",73.7,77.5,68.0,2250,3500,pay_per_lead
+83,Foundation Repair,"Raleigh, NC",73.5,72.5,75.0,2750,9000,flat_or_ppl
+84,HVAC Repair & Install,"Las Vegas, NV",73.5,77.5,67.5,2700,6000,ppl_or_revshare
+85,Mold Remediation,"Las Vegas, NV",73.5,77.5,67.5,2250,3500,pay_per_lead
+86,Tree Removal & Trimming,"Raleigh, NC",73.5,72.5,75.0,1950,1200,pay_per_lead
+87,Garage Door Repair,"Raleigh, NC",73.5,72.5,75.0,1950,450,pay_per_call
+88,Auto Glass & Windshield,"Raleigh, NC",73.5,72.5,75.0,1550,350,pay_per_call
+89,Roofing (Repair & Storm),"Houston, TX",73.4,75.0,71.0,3150,9000,ppl_or_revshare
+90,Roofing (Repair & Storm),"Tampa, FL",73.4,75.0,71.0,3050,9000,ppl_or_revshare
+91,Roofing (Repair & Storm),"Orlando, FL",73.4,75.0,71.0,3050,9000,ppl_or_revshare
+92,Roofing (Repair & Storm),"Charlotte, NC",73.4,75.0,71.0,3050,9000,ppl_or_revshare
+93,Roofing (Repair & Storm),"Nashville, TN",73.4,75.0,71.0,3050,9000,ppl_or_revshare
+94,Roofing (Repair & Storm),"San Antonio, TX",73.4,75.0,71.0,2950,9000,ppl_or_revshare
+95,Towing & Roadside,"Houston, TX",73.4,75.0,71.0,1600,150,pay_per_call
+96,Towing & Roadside,"Tampa, FL",73.4,75.0,71.0,1550,150,pay_per_call
+97,Towing & Roadside,"Orlando, FL",73.4,75.0,71.0,1550,150,pay_per_call
+98,Towing & Roadside,"Charlotte, NC",73.4,75.0,71.0,1550,150,pay_per_call
+99,Towing & Roadside,"Nashville, TN",73.4,75.0,71.0,1550,150,pay_per_call
+100,Towing & Roadside,"San Antonio, TX",73.4,75.0,71.0,1500,150,pay_per_call
+101,Foundation Repair,"Austin, TX",73.3,72.5,74.5,2800,9000,flat_or_ppl
+102,Foundation Repair,"Cape Coral-Fort Myers, FL",73.3,72.5,74.5,2650,9000,flat_or_ppl
+103,Foundation Repair,"Greenville, SC",73.3,72.5,74.5,2600,9000,flat_or_ppl
+104,Tree Removal & Trimming,"Austin, TX",73.3,72.5,74.5,1950,1200,pay_per_lead
+105,Garage Door Repair,"Austin, TX",73.3,72.5,74.5,1950,450,pay_per_call
+106,Tree Removal & Trimming,"Cape Coral-Fort Myers, FL",73.3,72.5,74.5,1850,1200,pay_per_lead
+107,Garage Door Repair,"Cape Coral-Fort Myers, FL",73.3,72.5,74.5,1850,450,pay_per_call
+108,Tree Removal & Trimming,"Greenville, SC",73.3,72.5,74.5,1800,1200,pay_per_lead
+109,Garage Door Repair,"Greenville, SC",73.3,72.5,74.5,1800,450,pay_per_call
+110,Auto Glass & Windshield,"Austin, TX",73.3,72.5,74.5,1550,350,pay_per_call
+111,Auto Glass & Windshield,"Cape Coral-Fort Myers, FL",73.3,72.5,74.5,1500,350,pay_per_call
+112,Auto Glass & Windshield,"Greenville, SC",73.3,72.5,74.5,1450,350,pay_per_call
+113,Junk Removal,"Boise, ID",73.2,70.0,78.0,1100,400,flat_monthly
+114,Foundation Repair,"Phoenix, AZ",73.1,72.5,74.0,2800,9000,flat_or_ppl
+115,Tree Removal & Trimming,"Phoenix, AZ",73.1,72.5,74.0,1950,1200,pay_per_lead
+116,Garage Door Repair,"Phoenix, AZ",73.1,72.5,74.0,1950,450,pay_per_call
+117,Auto Glass & Windshield,"Phoenix, AZ",73.1,72.5,74.0,1550,350,pay_per_call
+118,Foundation Repair,"Dallas-Fort Worth, TX",72.9,72.5,73.5,2850,9000,flat_or_ppl
+119,Tree Removal & Trimming,"Dallas-Fort Worth, TX",72.9,72.5,73.5,2000,1200,pay_per_lead
+120,Garage Door Repair,"Dallas-Fort Worth, TX",72.9,72.5,73.5,2000,450,pay_per_call
+121,Auto Glass & Windshield,"Dallas-Fort Worth, TX",72.9,72.5,73.5,1600,350,pay_per_call
+122,Roofing (Repair & Storm),"Oklahoma City, OK",72.6,75.0,69.0,2900,9000,ppl_or_revshare
+123,Towing & Roadside,"Oklahoma City, OK",72.6,75.0,69.0,1500,150,pay_per_call
+124,Foundation Repair,"Huntsville, AL",72.5,72.5,72.5,2600,9000,flat_or_ppl
+125,Tree Removal & Trimming,"Huntsville, AL",72.5,72.5,72.5,1800,1200,pay_per_lead
+126,Garage Door Repair,"Huntsville, AL",72.5,72.5,72.5,1800,450,pay_per_call
+127,Auto Glass & Windshield,"Huntsville, AL",72.5,72.5,72.5,1450,350,pay_per_call
+128,Foundation Repair,"Charleston, SC",72.3,72.5,72.0,2650,9000,flat_or_ppl
+129,Foundation Repair,"Colorado Springs, CO",72.3,72.5,72.0,2650,9000,flat_or_ppl
+130,Tree Removal & Trimming,"Charleston, SC",72.3,72.5,72.0,1850,1200,pay_per_lead
+131,Tree Removal & Trimming,"Colorado Springs, CO",72.3,72.5,72.0,1850,1200,pay_per_lead
+132,Garage Door Repair,"Charleston, SC",72.3,72.5,72.0,1850,450,pay_per_call
+133,Garage Door Repair,"Colorado Springs, CO",72.3,72.5,72.0,1850,450,pay_per_call
+134,Auto Glass & Windshield,"Charleston, SC",72.3,72.5,72.0,1500,350,pay_per_call
+135,Auto Glass & Windshield,"Colorado Springs, CO",72.3,72.5,72.0,1500,350,pay_per_call
+136,Roofing (Repair & Storm),"Atlanta, GA",72.2,75.0,68.0,3100,9000,ppl_or_revshare
+137,Roofing (Repair & Storm),"Jacksonville, FL",72.2,75.0,68.0,2900,9000,ppl_or_revshare
+138,Towing & Roadside,"Atlanta, GA",72.2,75.0,68.0,1550,150,pay_per_call
+139,Towing & Roadside,"Jacksonville, FL",72.2,75.0,68.0,1500,150,pay_per_call
+140,Roofing (Repair & Storm),"Las Vegas, NV",72.0,75.0,67.5,2950,9000,ppl_or_revshare
+141,Towing & Roadside,"Las Vegas, NV",72.0,75.0,67.5,1500,150,pay_per_call
+142,Junk Removal,"Raleigh, NC",72.0,70.0,75.0,1150,400,flat_monthly
+143,Foundation Repair,"Houston, TX",71.9,72.5,71.0,2850,9000,flat_or_ppl
+144,Foundation Repair,"Tampa, FL",71.9,72.5,71.0,2750,9000,flat_or_ppl
+145,Foundation Repair,"Orlando, FL",71.9,72.5,71.0,2750,9000,flat_or_ppl
+146,Foundation Repair,"Charlotte, NC",71.9,72.5,71.0,2750,9000,flat_or_ppl
+147,Foundation Repair,"Nashville, TN",71.9,72.5,71.0,2750,9000,flat_or_ppl
+148,Foundation Repair,"San Antonio, TX",71.9,72.5,71.0,2700,9000,flat_or_ppl
+149,Tree Removal & Trimming,"Houston, TX",71.9,72.5,71.0,2000,1200,pay_per_lead
+150,Garage Door Repair,"Houston, TX",71.9,72.5,71.0,2000,450,pay_per_call
+151,Tree Removal & Trimming,"Tampa, FL",71.9,72.5,71.0,1950,1200,pay_per_lead
+152,Tree Removal & Trimming,"Orlando, FL",71.9,72.5,71.0,1950,1200,pay_per_lead
+153,Tree Removal & Trimming,"Charlotte, NC",71.9,72.5,71.0,1950,1200,pay_per_lead
+154,Tree Removal & Trimming,"Nashville, TN",71.9,72.5,71.0,1950,1200,pay_per_lead
+155,Garage Door Repair,"Tampa, FL",71.9,72.5,71.0,1950,450,pay_per_call
+156,Garage Door Repair,"Orlando, FL",71.9,72.5,71.0,1950,450,pay_per_call
+157,Garage Door Repair,"Charlotte, NC",71.9,72.5,71.0,1950,450,pay_per_call
+158,Garage Door Repair,"Nashville, TN",71.9,72.5,71.0,1950,450,pay_per_call
+159,Tree Removal & Trimming,"San Antonio, TX",71.9,72.5,71.0,1900,1200,pay_per_lead
+160,Garage Door Repair,"San Antonio, TX",71.9,72.5,71.0,1900,450,pay_per_call
+161,Auto Glass & Windshield,"Houston, TX",71.9,72.5,71.0,1600,350,pay_per_call
+162,Auto Glass & Windshield,"Tampa, FL",71.9,72.5,71.0,1550,350,pay_per_call
+163,Auto Glass & Windshield,"Orlando, FL",71.9,72.5,71.0,1550,350,pay_per_call
+164,Auto Glass & Windshield,"Charlotte, NC",71.9,72.5,71.0,1550,350,pay_per_call
+165,Auto Glass & Windshield,"Nashville, TN",71.9,72.5,71.0,1550,350,pay_per_call
+166,Auto Glass & Windshield,"San Antonio, TX",71.9,72.5,71.0,1500,350,pay_per_call
+167,Junk Removal,"Austin, TX",71.8,70.0,74.5,1200,400,flat_monthly
+168,Junk Removal,"Greenville, SC",71.8,70.0,74.5,1100,400,flat_monthly
+169,Junk Removal,"Cape Coral-Fort Myers, FL",71.8,70.0,74.5,1100,400,flat_monthly
+170,Dumpster Rental,"Boise, ID",71.7,67.5,78.0,1400,450,pay_per_call
+171,Junk Removal,"Phoenix, AZ",71.6,70.0,74.0,1200,400,flat_monthly
+172,Junk Removal,"Dallas-Fort Worth, TX",71.4,70.0,73.5,1200,400,flat_monthly
+173,Foundation Repair,"Oklahoma City, OK",71.1,72.5,69.0,2650,9000,flat_or_ppl
+174,Tree Removal & Trimming,"Oklahoma City, OK",71.1,72.5,69.0,1850,1200,pay_per_lead
+175,Garage Door Repair,"Oklahoma City, OK",71.1,72.5,69.0,1850,450,pay_per_call
+176,Auto Glass & Windshield,"Oklahoma City, OK",71.1,72.5,69.0,1500,350,pay_per_call
+177,Junk Removal,"Huntsville, AL",71.0,70.0,72.5,1100,400,flat_monthly
+178,Junk Removal,"Charleston, SC",70.8,70.0,72.0,1100,400,flat_monthly
+179,Junk Removal,"Colorado Springs, CO",70.8,70.0,72.0,1100,400,flat_monthly
+180,Foundation Repair,"Atlanta, GA",70.7,72.5,68.0,2800,9000,flat_or_ppl
+181,Foundation Repair,"Jacksonville, FL",70.7,72.5,68.0,2650,9000,flat_or_ppl
+182,Tree Removal & Trimming,"Atlanta, GA",70.7,72.5,68.0,1950,1200,pay_per_lead
+183,Garage Door Repair,"Atlanta, GA",70.7,72.5,68.0,1950,450,pay_per_call
+184,Tree Removal & Trimming,"Jacksonville, FL",70.7,72.5,68.0,1850,1200,pay_per_lead
+185,Garage Door Repair,"Jacksonville, FL",70.7,72.5,68.0,1850,450,pay_per_call
+186,Auto Glass & Windshield,"Atlanta, GA",70.7,72.5,68.0,1550,350,pay_per_call
+187,Auto Glass & Windshield,"Jacksonville, FL",70.7,72.5,68.0,1500,350,pay_per_call
+188,Foundation Repair,"Las Vegas, NV",70.5,72.5,67.5,2700,9000,flat_or_ppl
+189,Tree Removal & Trimming,"Las Vegas, NV",70.5,72.5,67.5,1900,1200,pay_per_lead
+190,Garage Door Repair,"Las Vegas, NV",70.5,72.5,67.5,1900,450,pay_per_call
+191,Auto Glass & Windshield,"Las Vegas, NV",70.5,72.5,67.5,1500,350,pay_per_call
+192,Dumpster Rental,"Raleigh, NC",70.5,67.5,75.0,1450,450,pay_per_call
+193,Junk Removal,"Houston, TX",70.4,70.0,71.0,1200,400,flat_monthly
+194,Junk Removal,"San Antonio, TX",70.4,70.0,71.0,1150,400,flat_monthly
+195,Junk Removal,"Tampa, FL",70.4,70.0,71.0,1150,400,flat_monthly
+196,Junk Removal,"Orlando, FL",70.4,70.0,71.0,1150,400,flat_monthly
+197,Junk Removal,"Charlotte, NC",70.4,70.0,71.0,1150,400,flat_monthly
+198,Junk Removal,"Nashville, TN",70.4,70.0,71.0,1150,400,flat_monthly
+199,Dumpster Rental,"Austin, TX",70.3,67.5,74.5,1450,450,pay_per_call
+200,Dumpster Rental,"Cape Coral-Fort Myers, FL",70.3,67.5,74.5,1400,450,pay_per_call
+201,Dumpster Rental,"Greenville, SC",70.3,67.5,74.5,1350,450,pay_per_call
+202,Bath & Kitchen Remodel,"Boise, ID",70.2,65.0,78.0,2900,15000,pay_per_lead
+203,Concrete & Driveway,"Boise, ID",70.2,65.0,78.0,1850,4500,pay_per_lead
+204,Asphalt Paving & Sealcoat,"Boise, ID",70.2,65.0,78.0,1850,5000,pay_per_lead
+205,Fence Installation,"Boise, ID",70.2,65.0,78.0,1650,4000,flat_monthly
+206,Pest Control,"Boise, ID",70.2,65.0,78.0,1500,300,flat_or_revshare
+207,Dumpster Rental,"Phoenix, AZ",70.1,67.5,74.0,1450,450,pay_per_call
+208,Dumpster Rental,"Dallas-Fort Worth, TX",69.9,67.5,73.5,1500,450,pay_per_call
+209,Junk Removal,"Oklahoma City, OK",69.6,70.0,69.0,1100,400,flat_monthly
+210,Dumpster Rental,"Huntsville, AL",69.5,67.5,72.5,1350,450,pay_per_call
+211,Dumpster Rental,"Charleston, SC",69.3,67.5,72.0,1400,450,pay_per_call
+212,Dumpster Rental,"Colorado Springs, CO",69.3,67.5,72.0,1400,450,pay_per_call
+213,Junk Removal,"Atlanta, GA",69.2,70.0,68.0,1200,400,flat_monthly
+214,Junk Removal,"Jacksonville, FL",69.2,70.0,68.0,1100,400,flat_monthly
+215,Bath & Kitchen Remodel,"Raleigh, NC",69.0,65.0,75.0,3050,15000,pay_per_lead
+216,Concrete & Driveway,"Raleigh, NC",69.0,65.0,75.0,1950,4500,pay_per_lead
+217,Asphalt Paving & Sealcoat,"Raleigh, NC",69.0,65.0,75.0,1950,5000,pay_per_lead
+218,Fence Installation,"Raleigh, NC",69.0,65.0,75.0,1700,4000,flat_monthly
+219,Pest Control,"Raleigh, NC",69.0,65.0,75.0,1550,300,flat_or_revshare
+220,Junk Removal,"Las Vegas, NV",69.0,70.0,67.5,1150,400,flat_monthly
+221,Dumpster Rental,"Houston, TX",68.9,67.5,71.0,1500,450,pay_per_call
+222,Dumpster Rental,"Tampa, FL",68.9,67.5,71.0,1450,450,pay_per_call
+223,Dumpster Rental,"Orlando, FL",68.9,67.5,71.0,1450,450,pay_per_call
+224,Dumpster Rental,"Charlotte, NC",68.9,67.5,71.0,1450,450,pay_per_call
+225,Dumpster Rental,"Nashville, TN",68.9,67.5,71.0,1450,450,pay_per_call
+226,Dumpster Rental,"San Antonio, TX",68.9,67.5,71.0,1400,450,pay_per_call
+227,Bath & Kitchen Remodel,"Austin, TX",68.8,65.0,74.5,3100,15000,pay_per_lead
+228,Bath & Kitchen Remodel,"Cape Coral-Fort Myers, FL",68.8,65.0,74.5,2900,15000,pay_per_lead
+229,Bath & Kitchen Remodel,"Greenville, SC",68.8,65.0,74.5,2850,15000,pay_per_lead
+230,Concrete & Driveway,"Austin, TX",68.8,65.0,74.5,1950,4500,pay_per_lead
+231,Asphalt Paving & Sealcoat,"Austin, TX",68.8,65.0,74.5,1950,5000,pay_per_lead
+232,Concrete & Driveway,"Cape Coral-Fort Myers, FL",68.8,65.0,74.5,1850,4500,pay_per_lead
+233,Asphalt Paving & Sealcoat,"Cape Coral-Fort Myers, FL",68.8,65.0,74.5,1850,5000,pay_per_lead
+234,Concrete & Driveway,"Greenville, SC",68.8,65.0,74.5,1800,4500,pay_per_lead
+235,Asphalt Paving & Sealcoat,"Greenville, SC",68.8,65.0,74.5,1800,5000,pay_per_lead
+236,Fence Installation,"Austin, TX",68.8,65.0,74.5,1750,4000,flat_monthly
+237,Fence Installation,"Cape Coral-Fort Myers, FL",68.8,65.0,74.5,1650,4000,flat_monthly
+238,Fence Installation,"Greenville, SC",68.8,65.0,74.5,1600,4000,flat_monthly
+239,Pest Control,"Austin, TX",68.8,65.0,74.5,1550,300,flat_or_revshare
+240,Pest Control,"Cape Coral-Fort Myers, FL",68.8,65.0,74.5,1500,300,flat_or_revshare
+241,Pest Control,"Greenville, SC",68.8,65.0,74.5,1450,300,flat_or_revshare
+242,Solar Installation,"Boise, ID",68.7,62.5,78.0,3700,18000,pay_per_lead
+243,Artificial Turf Install,"Boise, ID",68.7,62.5,78.0,1650,7000,flat_monthly
+244,Epoxy Garage Flooring,"Boise, ID",68.7,62.5,78.0,1500,3000,flat_monthly
+245,Pressure Washing,"Boise, ID",68.7,62.5,78.0,1100,350,flat_monthly
+246,Bath & Kitchen Remodel,"Phoenix, AZ",68.6,65.0,74.0,3100,15000,pay_per_lead
+247,Concrete & Driveway,"Phoenix, AZ",68.6,65.0,74.0,1950,4500,pay_per_lead
+248,Asphalt Paving & Sealcoat,"Phoenix, AZ",68.6,65.0,74.0,1950,5000,pay_per_lead
+249,Fence Installation,"Phoenix, AZ",68.6,65.0,74.0,1750,4000,flat_monthly
+250,Pest Control,"Phoenix, AZ",68.6,65.0,74.0,1550,300,flat_or_revshare
+251,Bath & Kitchen Remodel,"Dallas-Fort Worth, TX",68.4,65.0,73.5,3150,15000,pay_per_lead
+252,Concrete & Driveway,"Dallas-Fort Worth, TX",68.4,65.0,73.5,2000,4500,pay_per_lead
+253,Asphalt Paving & Sealcoat,"Dallas-Fort Worth, TX",68.4,65.0,73.5,2000,5000,pay_per_lead
+254,Fence Installation,"Dallas-Fort Worth, TX",68.4,65.0,73.5,1750,4000,flat_monthly
+255,Pest Control,"Dallas-Fort Worth, TX",68.4,65.0,73.5,1600,300,flat_or_revshare
+256,Dumpster Rental,"Oklahoma City, OK",68.1,67.5,69.0,1400,450,pay_per_call
+257,Bath & Kitchen Remodel,"Huntsville, AL",68.0,65.0,72.5,2850,15000,pay_per_lead
+258,Concrete & Driveway,"Huntsville, AL",68.0,65.0,72.5,1800,4500,pay_per_lead
+259,Asphalt Paving & Sealcoat,"Huntsville, AL",68.0,65.0,72.5,1800,5000,pay_per_lead
+260,Fence Installation,"Huntsville, AL",68.0,65.0,72.5,1600,4000,flat_monthly
+261,Pest Control,"Huntsville, AL",68.0,65.0,72.5,1450,300,flat_or_revshare
+262,Bath & Kitchen Remodel,"Charleston, SC",67.8,65.0,72.0,2900,15000,pay_per_lead
+263,Bath & Kitchen Remodel,"Colorado Springs, CO",67.8,65.0,72.0,2900,15000,pay_per_lead
+264,Concrete & Driveway,"Charleston, SC",67.8,65.0,72.0,1850,4500,pay_per_lead
+265,Concrete & Driveway,"Colorado Springs, CO",67.8,65.0,72.0,1850,4500,pay_per_lead
+266,Asphalt Paving & Sealcoat,"Charleston, SC",67.8,65.0,72.0,1850,5000,pay_per_lead
+267,Asphalt Paving & Sealcoat,"Colorado Springs, CO",67.8,65.0,72.0,1850,5000,pay_per_lead
+268,Fence Installation,"Charleston, SC",67.8,65.0,72.0,1650,4000,flat_monthly
+269,Fence Installation,"Colorado Springs, CO",67.8,65.0,72.0,1650,4000,flat_monthly
+270,Pest Control,"Charleston, SC",67.8,65.0,72.0,1500,300,flat_or_revshare
+271,Pest Control,"Colorado Springs, CO",67.8,65.0,72.0,1500,300,flat_or_revshare
+272,Dumpster Rental,"Atlanta, GA",67.7,67.5,68.0,1450,450,pay_per_call
+273,Dumpster Rental,"Jacksonville, FL",67.7,67.5,68.0,1400,450,pay_per_call
+274,Solar Installation,"Raleigh, NC",67.5,62.5,75.0,3850,18000,pay_per_lead
+275,Artificial Turf Install,"Raleigh, NC",67.5,62.5,75.0,1700,7000,flat_monthly
+276,Epoxy Garage Flooring,"Raleigh, NC",67.5,62.5,75.0,1550,3000,flat_monthly
+277,Dumpster Rental,"Las Vegas, NV",67.5,67.5,67.5,1400,450,pay_per_call
+278,Pressure Washing,"Raleigh, NC",67.5,62.5,75.0,1150,350,flat_monthly
+279,Bath & Kitchen Remodel,"Houston, TX",67.4,65.0,71.0,3150,15000,pay_per_lead
+280,Bath & Kitchen Remodel,"Tampa, FL",67.4,65.0,71.0,3050,15000,pay_per_lead
+281,Bath & Kitchen Remodel,"Orlando, FL",67.4,65.0,71.0,3050,15000,pay_per_lead
+282,Bath & Kitchen Remodel,"Charlotte, NC",67.4,65.0,71.0,3050,15000,pay_per_lead
+283,Bath & Kitchen Remodel,"Nashville, TN",67.4,65.0,71.0,3050,15000,pay_per_lead
+284,Bath & Kitchen Remodel,"San Antonio, TX",67.4,65.0,71.0,2950,15000,pay_per_lead
+285,Concrete & Driveway,"Houston, TX",67.4,65.0,71.0,2000,4500,pay_per_lead
+286,Asphalt Paving & Sealcoat,"Houston, TX",67.4,65.0,71.0,2000,5000,pay_per_lead
+287,Concrete & Driveway,"Tampa, FL",67.4,65.0,71.0,1950,4500,pay_per_lead
+288,Concrete & Driveway,"Orlando, FL",67.4,65.0,71.0,1950,4500,pay_per_lead
+289,Concrete & Driveway,"Charlotte, NC",67.4,65.0,71.0,1950,4500,pay_per_lead
+290,Concrete & Driveway,"Nashville, TN",67.4,65.0,71.0,1950,4500,pay_per_lead
+291,Asphalt Paving & Sealcoat,"Tampa, FL",67.4,65.0,71.0,1950,5000,pay_per_lead
+292,Asphalt Paving & Sealcoat,"Orlando, FL",67.4,65.0,71.0,1950,5000,pay_per_lead
+293,Asphalt Paving & Sealcoat,"Charlotte, NC",67.4,65.0,71.0,1950,5000,pay_per_lead
+294,Asphalt Paving & Sealcoat,"Nashville, TN",67.4,65.0,71.0,1950,5000,pay_per_lead
+295,Concrete & Driveway,"San Antonio, TX",67.4,65.0,71.0,1900,4500,pay_per_lead
+296,Asphalt Paving & Sealcoat,"San Antonio, TX",67.4,65.0,71.0,1900,5000,pay_per_lead
+297,Fence Installation,"Houston, TX",67.4,65.0,71.0,1750,4000,flat_monthly
+298,Fence Installation,"Tampa, FL",67.4,65.0,71.0,1700,4000,flat_monthly
+299,Fence Installation,"Orlando, FL",67.4,65.0,71.0,1700,4000,flat_monthly
+300,Fence Installation,"Charlotte, NC",67.4,65.0,71.0,1700,4000,flat_monthly
+301,Fence Installation,"Nashville, TN",67.4,65.0,71.0,1700,4000,flat_monthly
+302,Fence Installation,"San Antonio, TX",67.4,65.0,71.0,1650,4000,flat_monthly
+303,Pest Control,"Houston, TX",67.4,65.0,71.0,1600,300,flat_or_revshare
+304,Pest Control,"Tampa, FL",67.4,65.0,71.0,1550,300,flat_or_revshare
+305,Pest Control,"Orlando, FL",67.4,65.0,71.0,1550,300,flat_or_revshare
+306,Pest Control,"Charlotte, NC",67.4,65.0,71.0,1550,300,flat_or_revshare
+307,Pest Control,"Nashville, TN",67.4,65.0,71.0,1550,300,flat_or_revshare
+308,Pest Control,"San Antonio, TX",67.4,65.0,71.0,1500,300,flat_or_revshare
+309,Solar Installation,"Austin, TX",67.3,62.5,74.5,3900,18000,pay_per_lead
+310,Solar Installation,"Cape Coral-Fort Myers, FL",67.3,62.5,74.5,3700,18000,pay_per_lead
+311,Solar Installation,"Greenville, SC",67.3,62.5,74.5,3650,18000,pay_per_lead
+312,Artificial Turf Install,"Austin, TX",67.3,62.5,74.5,1750,7000,flat_monthly
+313,Artificial Turf Install,"Cape Coral-Fort Myers, FL",67.3,62.5,74.5,1650,7000,flat_monthly
+314,Artificial Turf Install,"Greenville, SC",67.3,62.5,74.5,1600,7000,flat_monthly
+315,Epoxy Garage Flooring,"Austin, TX",67.3,62.5,74.5,1550,3000,flat_monthly
+316,Epoxy Garage Flooring,"Cape Coral-Fort Myers, FL",67.3,62.5,74.5,1500,3000,flat_monthly
+317,Epoxy Garage Flooring,"Greenville, SC",67.3,62.5,74.5,1450,3000,flat_monthly
+318,Pressure Washing,"Austin, TX",67.3,62.5,74.5,1200,350,flat_monthly
+319,Pressure Washing,"Greenville, SC",67.3,62.5,74.5,1100,350,flat_monthly
+320,Pressure Washing,"Cape Coral-Fort Myers, FL",67.3,62.5,74.5,1100,350,flat_monthly
+321,Solar Installation,"Phoenix, AZ",67.1,62.5,74.0,3900,18000,pay_per_lead
+322,Artificial Turf Install,"Phoenix, AZ",67.1,62.5,74.0,1750,7000,flat_monthly
+323,Epoxy Garage Flooring,"Phoenix, AZ",67.1,62.5,74.0,1550,3000,flat_monthly
+324,Pressure Washing,"Phoenix, AZ",67.1,62.5,74.0,1200,350,flat_monthly
+325,Solar Installation,"Dallas-Fort Worth, TX",66.9,62.5,73.5,4000,18000,pay_per_lead
+326,Artificial Turf Install,"Dallas-Fort Worth, TX",66.9,62.5,73.5,1750,7000,flat_monthly
+327,Epoxy Garage Flooring,"Dallas-Fort Worth, TX",66.9,62.5,73.5,1600,3000,flat_monthly
+328,Pressure Washing,"Dallas-Fort Worth, TX",66.9,62.5,73.5,1200,350,flat_monthly
+329,Bath & Kitchen Remodel,"Oklahoma City, OK",66.6,65.0,69.0,2900,15000,pay_per_lead
+330,Concrete & Driveway,"Oklahoma City, OK",66.6,65.0,69.0,1850,4500,pay_per_lead
+331,Asphalt Paving & Sealcoat,"Oklahoma City, OK",66.6,65.0,69.0,1850,5000,pay_per_lead
+332,Fence Installation,"Oklahoma City, OK",66.6,65.0,69.0,1650,4000,flat_monthly
+333,Pest Control,"Oklahoma City, OK",66.6,65.0,69.0,1500,300,flat_or_revshare
+334,Solar Installation,"Huntsville, AL",66.5,62.5,72.5,3650,18000,pay_per_lead
+335,Artificial Turf Install,"Huntsville, AL",66.5,62.5,72.5,1600,7000,flat_monthly
+336,Epoxy Garage Flooring,"Huntsville, AL",66.5,62.5,72.5,1450,3000,flat_monthly
+337,Pressure Washing,"Huntsville, AL",66.5,62.5,72.5,1100,350,flat_monthly
+338,Solar Installation,"Charleston, SC",66.3,62.5,72.0,3700,18000,pay_per_lead
+339,Solar Installation,"Colorado Springs, CO",66.3,62.5,72.0,3700,18000,pay_per_lead
+340,Artificial Turf Install,"Charleston, SC",66.3,62.5,72.0,1650,7000,flat_monthly
+341,Artificial Turf Install,"Colorado Springs, CO",66.3,62.5,72.0,1650,7000,flat_monthly
+342,Epoxy Garage Flooring,"Charleston, SC",66.3,62.5,72.0,1500,3000,flat_monthly
+343,Epoxy Garage Flooring,"Colorado Springs, CO",66.3,62.5,72.0,1500,3000,flat_monthly
+344,Pressure Washing,"Charleston, SC",66.3,62.5,72.0,1100,350,flat_monthly
+345,Pressure Washing,"Colorado Springs, CO",66.3,62.5,72.0,1100,350,flat_monthly
+346,Bath & Kitchen Remodel,"Atlanta, GA",66.2,65.0,68.0,3100,15000,pay_per_lead
+347,Bath & Kitchen Remodel,"Jacksonville, FL",66.2,65.0,68.0,2900,15000,pay_per_lead
+348,Concrete & Driveway,"Atlanta, GA",66.2,65.0,68.0,1950,4500,pay_per_lead
+349,Asphalt Paving & Sealcoat,"Atlanta, GA",66.2,65.0,68.0,1950,5000,pay_per_lead
+350,Concrete & Driveway,"Jacksonville, FL",66.2,65.0,68.0,1850,4500,pay_per_lead
+351,Asphalt Paving & Sealcoat,"Jacksonville, FL",66.2,65.0,68.0,1850,5000,pay_per_lead
+352,Fence Installation,"Atlanta, GA",66.2,65.0,68.0,1750,4000,flat_monthly
+353,Fence Installation,"Jacksonville, FL",66.2,65.0,68.0,1650,4000,flat_monthly
+354,Pest Control,"Atlanta, GA",66.2,65.0,68.0,1550,300,flat_or_revshare
+355,Pest Control,"Jacksonville, FL",66.2,65.0,68.0,1500,300,flat_or_revshare
+356,Bath & Kitchen Remodel,"Las Vegas, NV",66.0,65.0,67.5,2950,15000,pay_per_lead
+357,Concrete & Driveway,"Las Vegas, NV",66.0,65.0,67.5,1900,4500,pay_per_lead
+358,Asphalt Paving & Sealcoat,"Las Vegas, NV",66.0,65.0,67.5,1900,5000,pay_per_lead
+359,Fence Installation,"Las Vegas, NV",66.0,65.0,67.5,1650,4000,flat_monthly
+360,Pest Control,"Las Vegas, NV",66.0,65.0,67.5,1500,300,flat_or_revshare
+361,Solar Installation,"Houston, TX",65.9,62.5,71.0,4000,18000,pay_per_lead
+362,Solar Installation,"Tampa, FL",65.9,62.5,71.0,3850,18000,pay_per_lead
+363,Solar Installation,"Orlando, FL",65.9,62.5,71.0,3850,18000,pay_per_lead
+364,Solar Installation,"Charlotte, NC",65.9,62.5,71.0,3850,18000,pay_per_lead
+365,Solar Installation,"Nashville, TN",65.9,62.5,71.0,3850,18000,pay_per_lead
+366,Solar Installation,"San Antonio, TX",65.9,62.5,71.0,3800,18000,pay_per_lead
+367,Artificial Turf Install,"Houston, TX",65.9,62.5,71.0,1750,7000,flat_monthly
+368,Artificial Turf Install,"Tampa, FL",65.9,62.5,71.0,1700,7000,flat_monthly
+369,Artificial Turf Install,"Orlando, FL",65.9,62.5,71.0,1700,7000,flat_monthly
+370,Artificial Turf Install,"Charlotte, NC",65.9,62.5,71.0,1700,7000,flat_monthly
+371,Artificial Turf Install,"Nashville, TN",65.9,62.5,71.0,1700,7000,flat_monthly
+372,Artificial Turf Install,"San Antonio, TX",65.9,62.5,71.0,1650,7000,flat_monthly
+373,Epoxy Garage Flooring,"Houston, TX",65.9,62.5,71.0,1600,3000,flat_monthly
+374,Epoxy Garage Flooring,"Tampa, FL",65.9,62.5,71.0,1550,3000,flat_monthly
+375,Epoxy Garage Flooring,"Orlando, FL",65.9,62.5,71.0,1550,3000,flat_monthly
+376,Epoxy Garage Flooring,"Charlotte, NC",65.9,62.5,71.0,1550,3000,flat_monthly
+377,Epoxy Garage Flooring,"Nashville, TN",65.9,62.5,71.0,1550,3000,flat_monthly
+378,Epoxy Garage Flooring,"San Antonio, TX",65.9,62.5,71.0,1500,3000,flat_monthly
+379,Pressure Washing,"Houston, TX",65.9,62.5,71.0,1200,350,flat_monthly
+380,Pressure Washing,"San Antonio, TX",65.9,62.5,71.0,1150,350,flat_monthly
+381,Pressure Washing,"Tampa, FL",65.9,62.5,71.0,1150,350,flat_monthly
+382,Pressure Washing,"Orlando, FL",65.9,62.5,71.0,1150,350,flat_monthly
+383,Pressure Washing,"Charlotte, NC",65.9,62.5,71.0,1150,350,flat_monthly
+384,Pressure Washing,"Nashville, TN",65.9,62.5,71.0,1150,350,flat_monthly
+385,Solar Installation,"Oklahoma City, OK",65.1,62.5,69.0,3700,18000,pay_per_lead
+386,Artificial Turf Install,"Oklahoma City, OK",65.1,62.5,69.0,1650,7000,flat_monthly
+387,Epoxy Garage Flooring,"Oklahoma City, OK",65.1,62.5,69.0,1500,3000,flat_monthly
+388,Pressure Washing,"Oklahoma City, OK",65.1,62.5,69.0,1100,350,flat_monthly
+389,Solar Installation,"Atlanta, GA",64.7,62.5,68.0,3900,18000,pay_per_lead
+390,Solar Installation,"Jacksonville, FL",64.7,62.5,68.0,3700,18000,pay_per_lead
+391,Artificial Turf Install,"Atlanta, GA",64.7,62.5,68.0,1750,7000,flat_monthly
+392,Artificial Turf Install,"Jacksonville, FL",64.7,62.5,68.0,1650,7000,flat_monthly
+393,Epoxy Garage Flooring,"Atlanta, GA",64.7,62.5,68.0,1550,3000,flat_monthly
+394,Epoxy Garage Flooring,"Jacksonville, FL",64.7,62.5,68.0,1500,3000,flat_monthly
+395,Pressure Washing,"Atlanta, GA",64.7,62.5,68.0,1200,350,flat_monthly
+396,Pressure Washing,"Jacksonville, FL",64.7,62.5,68.0,1100,350,flat_monthly
+397,Solar Installation,"Las Vegas, NV",64.5,62.5,67.5,3800,18000,pay_per_lead
+398,Artificial Turf Install,"Las Vegas, NV",64.5,62.5,67.5,1650,7000,flat_monthly
+399,Epoxy Garage Flooring,"Las Vegas, NV",64.5,62.5,67.5,1500,3000,flat_monthly
+400,Pressure Washing,"Las Vegas, NV",64.5,62.5,67.5,1150,350,flat_monthly

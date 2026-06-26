@@ -1,0 +1,4 @@
+# No third-party dependencies — both tools use the Python 3 standard library only.
+# Run with any Python 3.8+:
+#   python3 tools/opportunity_score.py
+#   python3 tools/pricing_calculator.py --leads 12 --close-rate 0.35 --job-value 3500

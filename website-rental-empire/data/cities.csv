@@ -1,0 +1,21 @@
+city,state,metro_pop_millions,growth_score,demand_score,rankability_score,affluence_score
+Dallas-Fort Worth,TX,7.9,9,10,4,7
+Houston,TX,7.3,8,10,4,7
+San Antonio,TX,2.7,8,8,6,6
+Austin,TX,2.5,10,8,5,8
+Phoenix,AZ,5.1,9,9,5,7
+Tampa,FL,3.3,9,8,5,7
+Orlando,FL,2.8,9,8,5,7
+Jacksonville,FL,1.7,8,7,6,6
+Charlotte,NC,2.8,9,8,5,7
+Raleigh,NC,1.5,10,7,6,8
+Nashville,TN,2.1,9,8,5,7
+Atlanta,GA,6.3,8,9,4,7
+Las Vegas,NV,2.3,8,8,5,6
+Charleston,SC,0.85,9,6,7,7
+Boise,ID,0.79,10,6,8,7
+Greenville,SC,0.95,9,6,8,6
+Huntsville,AL,0.52,9,5,8,7
+Cape Coral-Fort Myers,FL,0.83,10,6,7,7
+Oklahoma City,OK,1.5,7,7,7,6
+Colorado Springs,CO,0.78,9,6,7,7
