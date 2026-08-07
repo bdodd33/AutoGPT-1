@@ -1,11 +1,39 @@
+import Link from "next/link";
 import { SiteNav } from "@/components/site-nav";
 import { AdminClient } from "./admin-client";
 import { hasAnthropic } from "@/lib/ai/anthropic";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { getProfile } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-export default function AdminPage() {
+export default async function AdminPage() {
+  // Admin-only once Supabase is configured; open in local seed-data mode.
+  if (isSupabaseConfigured) {
+    const profile = await getProfile();
+    if (profile?.role !== "admin") {
+      return (
+        <>
+          <SiteNav />
+          <main className="mx-auto max-w-3xl px-5 py-12">
+            <h1 className="text-2xl font-bold text-zinc-900">Admin</h1>
+            <p className="mt-2 text-zinc-600">
+              This area is for the site admin.{" "}
+              {!profile && (
+                <>
+                  <Link href="/login" className="text-blue-600 hover:underline">
+                    Sign in
+                  </Link>{" "}
+                  to continue.
+                </>
+              )}
+            </p>
+          </main>
+        </>
+      );
+    }
+  }
+
   return (
     <>
       <SiteNav />

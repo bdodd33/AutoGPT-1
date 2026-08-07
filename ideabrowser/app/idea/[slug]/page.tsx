@@ -3,7 +3,9 @@ import Link from "next/link";
 import { SiteNav } from "@/components/site-nav";
 import { ScoreGrid } from "@/components/score-badge";
 import { Markdownish } from "@/components/markdownish";
-import { getIdeaBySlug } from "@/lib/data/ideas";
+import { SaveButton } from "@/components/save-button";
+import { getIdeaBySlug, getSavedSlugs } from "@/lib/data/ideas";
+import { getUser } from "@/lib/auth";
 import { SECTION_ORDER } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -11,7 +13,11 @@ export const dynamic = "force-dynamic";
 // Next.js 16: params is a Promise and must be awaited.
 export default async function IdeaPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const idea = await getIdeaBySlug(slug);
+  const [idea, user, savedSlugs] = await Promise.all([
+    getIdeaBySlug(slug),
+    getUser(),
+    getSavedSlugs(),
+  ]);
   if (!idea) notFound();
 
   // Order sections by our canonical order, then render whatever exists.
@@ -39,6 +45,11 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
         </div>
         <h1 className="text-3xl font-bold text-zinc-900">{idea.title}</h1>
         <p className="mt-2 text-lg text-zinc-600">{idea.one_liner}</p>
+        {user && (
+          <div className="mt-4">
+            <SaveButton slug={idea.slug} initialSaved={savedSlugs.has(idea.slug)} />
+          </div>
+        )}
 
         <div className="mt-5 rounded-xl border border-zinc-200 bg-white p-5">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-zinc-500">

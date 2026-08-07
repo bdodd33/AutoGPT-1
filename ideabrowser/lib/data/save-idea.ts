@@ -1,15 +1,17 @@
 import "server-only";
 import type { Idea } from "@/lib/types";
-import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { SUPABASE_SERVICE_ROLE_KEY, isSupabaseConfigured } from "@/lib/supabase/env";
 import { createServiceClient } from "@/lib/supabase/server";
 
 // Persist a generated idea (sections, scores, signals) using the service-role
-// client. Returns true if saved, false if Supabase isn't configured (preview-only).
+// client. Returns true if saved, false when persistence isn't configured
+// (missing Supabase or missing service-role key) — callers treat that as
+// preview-only rather than an error.
 export async function saveIdea(
   idea: Idea,
   opts: { publish?: boolean; featureToday?: boolean } = {},
 ): Promise<boolean> {
-  if (!isSupabaseConfigured) return false;
+  if (!isSupabaseConfigured || !SUPABASE_SERVICE_ROLE_KEY) return false;
 
   const supabase = createServiceClient();
   const status = opts.publish ? "published" : "draft";

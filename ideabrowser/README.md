@@ -41,11 +41,28 @@ npm run dev                  # http://localhost:3000
 
 ## Supabase setup
 
-1. Create a project at [supabase.com](https://supabase.com).
-2. Run the migration in `supabase/migrations/0001_init.sql` (SQL editor, or the Supabase CLI).
-3. Copy the API keys into `.env.local`.
-4. Make your own account an admin after signing up:
-   `update profiles set role = 'admin' where email = 'you@example.com';`
+A live project (`ideabrowser`, ref `iyyjmxmzskcyrubrrgcy`) is already provisioned with
+migrations 0001–0003 applied and the security advisors clean. `.env.local` (untracked)
+carries the URL + anon key; copy the **service_role** key from
+Supabase dashboard → Project Settings → API keys into `SUPABASE_SERVICE_ROLE_KEY`
+to enable idea persistence from the admin generator and cron.
+
+To recreate from scratch: run the files in `supabase/migrations/` in order.
+
+**Admin bootstrap:** the *first* account to sign up automatically becomes the admin
+(migration 0003) — sign up yourself before sharing the URL. Later accounts are
+regular users; promote with
+`update profiles set role = 'admin' where email = 'you@example.com';`
+
+## Auth
+
+- `/login` — password sign-in, sign-up, and magic-link tabs (Supabase Auth).
+- `/auth/callback` — code exchange for magic links / email confirmation.
+- Nav shows Sign in / Sign out based on session (refreshed by `proxy.ts`).
+- Gating once Supabase is configured: `/admin` + generation API are admin-only;
+  the Idea Agent requires sign-in and persists runs to `agent_runs`; “Save idea”
+  bookmarks to `saved_ideas` (see `/saved`). In seed-data mode everything stays
+  open since there's nothing to protect.
 
 Row Level Security is enabled: published ideas are public; drafts and all writes are
 admin-only; saved ideas and agent runs are owner-scoped. This is what makes the

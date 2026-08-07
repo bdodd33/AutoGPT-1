@@ -1,7 +1,15 @@
+import Link from "next/link";
 import { SiteNav } from "@/components/site-nav";
 import { AgentClient } from "./agent-client";
+import { getUser } from "@/lib/auth";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 
-export default function AgentPage() {
+export const dynamic = "force-dynamic";
+
+export default async function AgentPage() {
+  const user = await getUser();
+  const needsSignIn = isSupabaseConfigured && !user;
+
   return (
     <>
       <SiteNav />
@@ -11,7 +19,16 @@ export default function AgentPage() {
           Describe any startup idea and get a full AI research report, enriched with live demand
           signals.
         </p>
-        <AgentClient />
+        {needsSignIn ? (
+          <p className="rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+            <Link href="/login" className="font-medium text-blue-700 hover:underline">
+              Sign in
+            </Link>{" "}
+            to use the Idea Agent — runs are saved to your account.
+          </p>
+        ) : (
+          <AgentClient />
+        )}
       </main>
     </>
   );

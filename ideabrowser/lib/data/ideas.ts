@@ -76,6 +76,40 @@ export async function getIdeaBySlug(slug: string): Promise<Idea | null> {
   return rowToIdea(data as IdeaRow);
 }
 
+// Slugs the signed-in user has bookmarked (empty when signed out / seed mode).
+export async function getSavedSlugs(): Promise<Set<string>> {
+  if (!isSupabaseConfigured) return new Set();
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return new Set();
+  const { data } = await supabase.from("saved_ideas").select("ideas(slug)").eq("user_id", user.id);
+  const slugs = (data ?? [])
+    .map((row) => (row as unknown as { ideas: { slug: string } | null }).ideas?.slug)
+    .filter((s): s is string => Boolean(s));
+  return new Set(slugs);
+}
+
+// Full idea objects the signed-in user has saved, newest bookmark first.
+export async function listSavedIdeas(): Promise<Idea[]> {
+  if (!isSupabaseConfigured) return [];
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return [];
+  const { data } = await supabase
+    .from("saved_ideas")
+    .select(`created_at, ideas(${SELECT})`)
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false });
+  return (data ?? [])
+    .map((row) => (row as unknown as { ideas: IdeaRow | null }).ideas)
+    .filter((r): r is IdeaRow => Boolean(r))
+    .map(rowToIdea);
+}
+
 export async function getIdeaOfTheDay(): Promise<Idea | null> {
   const ideas = await listIdeas();
   if (ideas.length === 0) return null;

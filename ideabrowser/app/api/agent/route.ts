@@ -1,11 +1,27 @@
 import { GENERATION_MODEL, getAnthropic, hasAnthropic } from "@/lib/ai/anthropic";
 import { gatherSignals } from "@/lib/signals";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { createClient } from "@/lib/supabase/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 // Streams a markdown research report for any idea the user types.
 export async function POST(request: Request) {
+  // Once Supabase is configured, the agent requires a signed-in user (it spends
+  // API credits) and persists completed runs to agent_runs.
+  let userId: string | null = null;
+  if (isSupabaseConfigured) {
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) {
+      return Response.json({ error: "Sign in to use the Idea Agent." }, { status: 401 });
+    }
+    userId = user.id;
+  }
+
   if (!hasAnthropic()) {
     return Response.json(
       { error: "ANTHROPIC_API_KEY is not configured on the server." },
@@ -29,6 +45,7 @@ export async function POST(request: Request) {
 
   const stream = new ReadableStream({
     async start(controller) {
+      let fullText = "";
       try {
         const messageStream = client.messages.stream({
           model: GENERATION_MODEL,
@@ -50,9 +67,22 @@ opportunity, feasibility, timing, and revenue potential. Be specific and numeric
         });
 
         messageStream.on("text", (delta) => {
+          fullText += delta;
           controller.enqueue(encoder.encode(delta));
         });
-        await messageStream.finalMessage();
+        const final = await messageStream.finalMessage();
+
+        // Persist the completed run so reports aren't lost on page close.
+        if (userId) {
+          const supabase = await createClient();
+          await supabase.from("agent_runs").insert({
+            user_id: userId,
+            prompt,
+            status: "complete",
+            result: fullText,
+            tokens: final.usage.output_tokens,
+          });
+        }
       } catch (err) {
         controller.enqueue(
           encoder.encode(`\n\n_Error generating report: ${(err as Error).message}_`),

@@ -1,15 +1,19 @@
 import { hasAnthropic } from "@/lib/ai/anthropic";
 import { generateIdea } from "@/lib/ai/generate-idea";
 import { saveIdea } from "@/lib/data/save-idea";
+import { isAdmin } from "@/lib/auth";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
 
-// Generate an idea from a seed topic and (optionally) save it.
-// NOTE: This is the personal-admin endpoint. Before public launch, gate it
-// behind an authenticated admin check (profiles.role = 'admin').
+// Generate an idea from a seed topic and (optionally) save it. Admin-only once
+// Supabase is configured; open in local seed-data mode (nothing to protect).
 export async function POST(request: Request) {
+  if (isSupabaseConfigured && !(await isAdmin())) {
+    return Response.json({ error: "Admin access required." }, { status: 403 });
+  }
   if (!hasAnthropic()) {
     return Response.json({ error: "ANTHROPIC_API_KEY is not configured." }, { status: 503 });
   }
